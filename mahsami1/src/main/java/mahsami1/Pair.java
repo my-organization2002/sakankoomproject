@@ -5,10 +5,11 @@ public class Pair {
 	    private String password ;
 	    private String type;
 
-	    public Pair (String name, String password,String type) {
+	    public Pair (String name, String password) {
 	        this.name = name;
 	        this.password  = password;
-	        this.type=type;
+	        
+	        
 	    }
 
 	    public String getName() {
@@ -19,8 +20,6 @@ public class Pair {
 	        return password;
 	    }
 	    
-	    public String gettype() {
-	        return type;
-	    }
+	 
 
 }
