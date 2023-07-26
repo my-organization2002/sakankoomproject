@@ -1,5 +1,7 @@
 
 Feature: Tenant views housing details 
+Background:
+    Given The Tenant is Logged in
 Scenario: Tenant views housing details 
 Given the teant selects a  housing unit with id =1 
 Then the tenant  view pictures:
