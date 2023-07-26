@@ -23,6 +23,7 @@ public class floors {
 		this.floorID = floorID;
 		this.numOfApartements = numOfApartements;
 	}
+	
 	public appartment selectApartment(Integer apartmentId) {
 		// TODO Auto-generated method stub
 		for(appartment appartmentunit:appartmentlist) {

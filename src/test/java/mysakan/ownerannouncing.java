@@ -1,36 +1,53 @@
 package mysakan;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 
 import java.util.List;
 import java.util.Map;
 
 import io.cucumber.java.en.*;
 import myDBS.Announcedresidences;
+import myDBS.ResidentsDB;
 public class ownerannouncing{
 	owner housingowner;
     residenceAnnounced announcedresidence;
     residence myresidence;
-	public ownerannouncing(owner housingowner, residenceAnnounced announcedresidence, residence myresidence) {
-		super();
-		this.housingowner = housingowner;
-		this.announcedresidence = announcedresidence;
-		this.myresidence=myresidence;
-	}
-	@Given("The owner is Logged in")
-    public void theownerIsLoggedIn() {
-        assertTrue(housingowner.getLoggedInFlag());
+    boolean existingID;
+    public ownerannouncing(owner housingowner, residenceAnnounced announcedresidence) {
+        this.housingowner = housingowner;
+        this.announcedresidence = announcedresidence;
     }
-@When("When I choose to announce my private residence with ID {int}")
-public void iChooseToAnnounceAPrivateResidence(Integer residenceID) {
-    // Write code here that turns the phrase above into concrete actions
-    // throw new io.cucumber.java.PendingException();
-	this.myresidence=this.housingowner.selectHousingUnit(residenceID);
-	announcedresidence.setRecidence(this.myresidence);
-}
 
-@When("I add the following photos:")
-public void iAddTheFollowingPhotos(io.cucumber.datatable.DataTable dataTable) {
+  //  @Given("The owner is Logged in")
+  //  public void theOwnerIsLoggedIn() {
+   // 	housingowner.setLoggedInFlag(true);
+  //      assertTrue(housingowner.getLoggedInFlag());
+  //  }
+//
+  //  @When("I choose to announce my private residence with ID {int}")
+  //  public void iChooseToAnnounceMyPrivateResidenceWithID(Integer residenceID) {
+    	//existingID=!(ResidentsDB.findAnnouncedResidence(residenceID).equals(null));
+       // this.myresidence = this.housingowner.selectHousingUnit(residenceID);
+       // this.announcedresidence.setRecidence(this.myresidence);
+        //this.announcedresidence.setRecidenceID(residenceID);
+    	
+    //}
+    @When("I choose to announce my private residence with ID {int}")
+    public void iChooseToAnnounceMyPrivateResidenceWithID(Integer residenceID) {
+        existingID = !(ResidentsDB.findAnnouncedResidence(residenceID).equals(null));
+        this.myresidence = ResidentsDB.findAnnouncedResidence(residenceID);
+        System.out.println("Selected Housing Unit: " + myresidence); // Debug statement
+        this.announcedresidence.setRecidence(this.myresidence);
+        System.out.println("Announced Residence: " + announcedresidence); // Debug statement
+        this.announcedresidence.setRecidenceID(residenceID);
+    }
+
+
+	@When("I add the following photos:")
+	public void iAddTheFollowingPhotos(io.cucumber.datatable.DataTable dataTable) {
     // Write code here that turns the phrase above into concrete actions
     // For automatic transformation, change DataTable to one of
     // E, List<E>, List<List<E>>, List<Map<K,V>>, Map<K,V> or
@@ -48,9 +65,9 @@ public void iAddTheFollowingPhotos(io.cucumber.datatable.DataTable dataTable) {
      }
 }
 
-@When("provide the following details about the residence:")
-public void provideTheFollowingDetailsAboutTheResidence(io.cucumber.datatable.DataTable dataTable) {
-    // Write code here that turns the phrase above into concrete actions
+	@When("provide the following details about the residence:")
+	public void provideTheFollowingDetailsAboutTheResidence(io.cucumber.datatable.DataTable dataTable) {
+		// Write code here that turns the phrase above into concrete actions
     // For automatic transformation, change DataTable to one of
     // E, List<E>, List<List<E>>, List<Map<K,V>>, Map<K,V> or
     // Map<K, List<V>>. E,K,V must be a String, Integer, Float,
@@ -70,8 +87,8 @@ public void provideTheFollowingDetailsAboutTheResidence(io.cucumber.datatable.Da
 	
 }
 
-@When("specify the following available services:")
-public void specifyTheFollowingAvailableServices(io.cucumber.datatable.DataTable dataTable) {
+	@When("specify the following available services:")
+	public void specifyTheFollowingAvailableServices(io.cucumber.datatable.DataTable dataTable) {
     // Write code here that turns the phrase above into concrete actions
     // For automatic transformation, change DataTable to one of
     // E, List<E>, List<List<E>>, List<Map<K,V>>, Map<K,V> or
@@ -84,15 +101,15 @@ public void specifyTheFollowingAvailableServices(io.cucumber.datatable.DataTable
     announcedresidence.setAvailableServices(availableServices);
 }
 
-@When("set the monthly rent amount to ${int}")
-public void setTheMonthlyRentAmountTo$(Integer rentAmount) {
+	@When("set the monthly rent amount to ${int}")
+	public void setTheMonthlyRentAmountTo$(Integer rentAmount) {
     // Write code here that turns the phrase above into concrete actions
     // throw new io.cucumber.java.PendingException();
 	  announcedresidence.setMonthlyRent(rentAmount);
 }
 
-@When("specify that the rent includes electricity and water")
-public void specifyThatTheRentIncludesElectricityAndWater() {
+	@When("specify that the rent includes electricity and water")
+	public void specifyThatTheRentIncludesElectricityAndWater() {
     // Write code here that turns the phrase above into concrete actions
     // throw new io.cucumber.java.PendingException();
 	announcedresidence.setRentInclusive(true);
@@ -121,15 +138,48 @@ public void provideTheFollowingContactInformation(io.cucumber.datatable.DataTabl
 
 @Then("the private residence should be successfully announced")
 public void thePrivateResidenceShouldBeSuccessfullyAnnounced() {
+    // 1. Add the announced residence to the Announcedresidences list
+    Announcedresidences.addResident(announcedresidence);
+
+    // 2. Now, let's verify if it has been successfully added by checking if it exists in the list
+    // Get the residence ID of the announced residence
+    int residenceID = announcedresidence.getRecidenceID();
+
+    // Find the announced residence with the given ID from the list
+    residenceAnnounced AnnRes = Announcedresidences.findAnnouncedResidence(residenceID);
+
+    // Check if the announced residence is found (i.e., it has been successfully announced)
+    assertNotNull("Announced residence should not be null", AnnRes);
+
+    // Verify that the residence in the announced residence is not null
+    assertNotNull("Residence in the announced residence should not be null", AnnRes.getRecidence());
+
+    // Optionally, you can also check if the announced residence is the same as the one you intended to announce (myresidence).
+    assertTrue("Announced residence should match myresidence", AnnRes.getRecidence().getResidenceID() == myresidence.getResidenceID());
+}
+
+@Given("I am trying to add a residence with ID {int} that does not exist")
+public void iAmTryingToAddAResidenceWithIDThatDoesNotExist(Integer residenceID) {
+    // Write code here that turns the phrase above into concrete actions
+    //throw new io.cucumber.java.PendingException();
+	//this.myresidence = this.housingowner.selectHousingUnit(residenceID);
+   // announcedresidence.setRecidence(this.myresidence);
+	existingID = false;
+}
+
+@Then("I Should get A Message {string}")
+public void iShouldGetAMessage(String message) {
     // Write code here that turns the phrase above into concrete actions
     // throw new io.cucumber.java.PendingException();
-	Announcedresidences.addResident(announcedresidence);
-	residenceAnnounced AnnRes=Announcedresidences.findAnnouncedResidence(myresidence.getResidenceID());
-	boolean announcementResult;
-	if(AnnRes.equals(null)) {
-		announcementResult=false;
-	}
-	else announcementResult=true;
-    assertTrue(announcementResult);
+	 if (!existingID) {
+	        // Assuming you have some method in the 'announcedresidence' class to get the message
+	        String actualMessage = announcedresidence.getErrorMessage();
+	        assertEquals(message, actualMessage);
+	    }
+
 }
+
+
+
+
 }

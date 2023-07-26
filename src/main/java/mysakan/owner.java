@@ -33,6 +33,9 @@ public class owner {
     public ArrayList<residence> getResidenceList() {
 		return residenceList;
 	}
+    public void addResidence(residence Recidence) {
+    	this.residenceList.add(Recidence);
+    }
 	public void setResidenceList(ArrayList<residence> residenceList) {
 		this.residenceList = residenceList;
 	}

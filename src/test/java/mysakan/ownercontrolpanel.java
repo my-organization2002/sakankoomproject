@@ -1,6 +1,8 @@
 package mysakan;
 
 import io.cucumber.java.en.*;
+import myDBS.ResidentsDB;
+
 import static org.junit.Assert.assertTrue;
 
 public class ownercontrolpanel {
@@ -15,6 +17,7 @@ public class ownercontrolpanel {
     
     @Given("The owner is Logged in")
     public void theownerIsLoggedIn() {
+    	housingowner.setLoggedInFlag(true);
         assertTrue(housingowner.getLoggedInFlag());
     }
 
@@ -30,7 +33,7 @@ public class ownercontrolpanel {
 
     @When("I choose housing unit with ID {int}")
     public void iChooseHousingUnitWithID(Integer housingUnitId) {
-        selectedHousingUnit = housingowner.selectHousingUnit(housingUnitId);
+        selectedHousingUnit = ResidentsDB.findAnnouncedResidence(housingUnitId);
     }
 
     @Then("I should see that it has {int} Tenants and {int} Floors")

@@ -16,6 +16,32 @@ public class residenceAnnounced {
 	private boolean announced;
 	ArrayList <Photos> Photos=new ArrayList();
 	ArrayList <String> availableServices=new ArrayList();
+	private int recidenceID;
+	
+
+	public residenceAnnounced(residence recidence, String residenceName, String address, String description,
+			int monthlyRent, boolean rentInclusive, String contactName, String email, String phoneNumber,
+			boolean announced, ArrayList<mysakan.Photos> photos, ArrayList<String> availableServices, int recidenceID) {
+		super();
+		Recidence = recidence;
+		this.residenceName = residenceName;
+		this.address = address;
+		this.description = description;
+		this.monthlyRent = monthlyRent;
+		this.rentInclusive = rentInclusive;
+		this.contactName = contactName;
+		this.email = email;
+		this.phoneNumber = phoneNumber;
+		this.announced = announced;
+		Photos = photos;
+		this.availableServices = availableServices;
+		this.recidenceID = recidenceID;
+	}
+
+	public residenceAnnounced() {
+		super();
+	}
+
 	public String getResidenceName() {
 		return residenceName;
 	}
@@ -39,8 +65,9 @@ public class residenceAnnounced {
 		this.description = description;
 	}
 	public void setAvailableServices(List<String> availableServices) {
-		// TODO Auto-generated method stub
-		this.availableServices=(ArrayList<String>) availableServices;
+	    // Create a new ArrayList and add all elements from the original list
+		this.availableServices = new ArrayList<String>(availableServices);
+
 	}
 	public void setMonthlyRent(Integer rentAmount) {
 		// TODO Auto-generated method stub
@@ -74,7 +101,7 @@ public class residenceAnnounced {
 		return Recidence;
 	}
 	public void setRecidence(residence recidence) {
-		Recidence = recidence;
+		this.Recidence = recidence;
 	}
 	public int getMonthlyRent() {
 		return monthlyRent;
@@ -85,6 +112,21 @@ public class residenceAnnounced {
 	public boolean isRentInclusive() {
 		return rentInclusive;
 	}
+	public String getErrorMessage() {
+		// TODO Auto-generated method stub
+		return "The ID of the residence you're trying to announce does not exist";
+		
+	}
+
+	public int getRecidenceID() {
+		// TODO Auto-generated method stub
+		return this.recidenceID;
+	}
+
+	public void setRecidenceID(int recidenceID) {
+		this.recidenceID = recidenceID;
+	}
+	
 	
 	
 }

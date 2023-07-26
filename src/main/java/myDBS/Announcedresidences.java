@@ -26,7 +26,7 @@ public class Announcedresidences {
 		for(residenceAnnounced resAnnounced:Announcedresidences.getAnnouncedResidences())
 		{
 			
-			if(resAnnounced.getRecidence().getResidenceID()==id) 
+			if(resAnnounced.getRecidenceID()==id) 
 			{
 				return resAnnounced;
 			}

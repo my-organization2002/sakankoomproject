@@ -17,6 +17,9 @@ public class residence {
 		this.numOfFloors = numOfFloors;
 		this.residenceID = residenceID;
 	}
+	public residence() {
+		super();
+	}
 	
 	public int getNumOfTens() {
 		return numOfTens;
