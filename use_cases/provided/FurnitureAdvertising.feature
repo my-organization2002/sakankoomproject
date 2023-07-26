@@ -5,6 +5,10 @@ Background:
     
 Scenario: Tenant advertises used furniture for sale
 Given the tenant wants to advertise used furniture
-When the tenant accesses the furniture window
-And creates a furniture advertisement
+
+When creates a furniture advertisement:
+|furniture name |price |
+|sofa|20$|
+|tv| 100$|
+
 Then the furniture ad is posted on the app
