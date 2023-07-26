@@ -5,6 +5,10 @@ public class floors {
 	ArrayList <appartment> appartmentlist=new ArrayList();
 	private int floorID;
 	private int numOfApartements;
+	
+	public floors() {
+		super();
+	}
 	public int getFloorID() {
 		return floorID;
 	}

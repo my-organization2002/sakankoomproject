@@ -41,16 +41,25 @@ public class ownercontrolpanel {
         assertTrue(selectedHousingUnit.getNumOfTens() == numTenants);
         assertTrue(selectedHousingUnit.getNumOfFloors() == numFloors);
     }
+    @Given("I have chose housing unit with ID {int}")
+    public void iHaveChoseHousingUnitWithID(Integer housingUnitId) {
+        // Write code here that turns the phrase above into concrete actions
+        //throw new io.cucumber.java.PendingException();
+        selectedHousingUnit = ResidentsDB.findAnnouncedResidence(housingUnitId);
+
+    }
 
     @When("I choose the Floor with ID {int}")
     public void iChooseTheFloorWithID(Integer floorId) {
         selectedFloor = selectedHousingUnit.selectFloor(floorId);
     }
-
-    @Then("I should see that it has {int} Apartments")
-    public void iShouldSeeThatItHasApartments(Integer numApartments) {
-        assertTrue(selectedFloor.getNumOfApartements() == numApartments);
+    @Then("I should see that it has {int} Apartements")
+    public void iShouldSeeThatItHasApartements(Integer numApartments) {
+        // Write code here that turns the phrase above into concrete actions
+        // throw new io.cucumber.java.PendingException();
+    	assertTrue(selectedFloor.getNumOfApartements() == numApartments);
     }
+
 
     @When("I choose the Apartment with ID {int}")
     public void iChooseTheApartmentWithID(Integer apartmentId) {
@@ -67,6 +76,14 @@ public class ownercontrolpanel {
         assertTrue(selectedApartment.hasTenant(name1));
         assertTrue(selectedApartment.hasTenant(name2));
     }
+    @Then("the means of communication with them should be displayed {string},{string}")
+    public void theMeansOfCommunicationWithThemShouldBeDisplayed(String string, String string2) {
+        // Write code here that turns the phrase above into concrete actions
+       // throw new io.cucumber.java.PendingException();
+    	assertTrue(selectedApartment.tenantslist.get(1).getEmail().equalsIgnoreCase(string));
+    	assertTrue(selectedApartment.tenantslist.get(0).getEmail().equalsIgnoreCase(string2));
+
+    }
 
     @Then("the number of bathrooms being {int}")
     public void theNumberOfBathroomsBeing(Integer numBathrooms) {
@@ -80,6 +97,6 @@ public class ownercontrolpanel {
     @Then("if it has a balcony of not being true")
     public void ifItHasABalconyOfNotBeingTrue() {
         // Write code here that turns the phrase above into concrete actions
-    	assertTrue(selectedApartment.isHasBalcony());
+    	assertTrue(!(selectedApartment.isHasBalcony()));
     }
 }

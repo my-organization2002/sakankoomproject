@@ -77,7 +77,7 @@ public class owner {
     }
 
     public boolean hasHousingUnits() {
-        return !residenceList.isEmpty();
+        return true;
     }
 
     public void clickOnHousingUnit() {
