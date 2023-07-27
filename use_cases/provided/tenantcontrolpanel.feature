@@ -1,4 +1,7 @@
 Feature: Tenant Control Panel
+  Background:
+    Given The Tenant is Logged in
+    And The Tenant has Booked an Appartment
 Scenario: Tenant views personal data
 Given the tenant has made a booking
 When the tenant accesses the control panel

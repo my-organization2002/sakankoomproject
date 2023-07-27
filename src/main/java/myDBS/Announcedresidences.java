@@ -2,7 +2,12 @@ package myDBS;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.*;
+
+import mysakan.appartment;
+import mysakan.floors;
+import mysakan.residence;
 import mysakan.residenceAnnounced;
+import mysakan.tenants;
 public class Announcedresidences {
 	   private static final Logger LOGGER = Logger.getLogger(Announcedresidences.class.getName());
 	   private static final String COMPLETE = "complete";  // Compliant
@@ -12,6 +17,7 @@ public class Announcedresidences {
 	   private Announcedresidences() {
 		    throw new IllegalStateException("Utility class");
 	   }
+	   
        
 
 	public static List<residenceAnnounced> getAnnouncedResidences() {

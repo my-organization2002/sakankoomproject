@@ -33,7 +33,7 @@ public class ResidentsDB {
 		   floors Floor=new floors(Appartments,3,40);
 		   ArrayList<floors>Floors=new ArrayList();
 		   Floors.add(Floor);
-		   ResidencesList.add(new residence(Floors, 125, 9, 1));
+		   ResidencesList.add(new residence(Floors, 125, 9, 1,true));
 	    }
 
 	public static List<residence> getResidences() {
@@ -81,6 +81,20 @@ public class ResidentsDB {
 
 	public static void noRes() {
 		LOGGER.warning("The Residence Does Not Exist/Is Not Announced");
+	}
+
+	public static residence getStudentHousingUnitById(Integer housingUnitId) {
+		// TODO Auto-generated method stub
+		for(residence res:ResidentsDB.getResidences())
+		{
+			
+			if(res.getResidenceID()==housingUnitId && res.isStudentHousing()) 
+			{
+				return res;
+			}
+		}
+		return null;
+		
 	}
 	
 	

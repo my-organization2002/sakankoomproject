@@ -7,15 +7,17 @@ public class residence {
 	private int numOfTens;
 	private int numOfFloors;
 	private int residenceID;
+	private boolean StudentHousing;
 	
 	
 
-	public residence(ArrayList<floors> floorlist, int numOfTens, int numOfFloors, int residenceID) {
+	public residence(ArrayList<floors> floorlist, int numOfTens, int numOfFloors, int residenceID, boolean StudentHouse) {
 		super();
 		this.floorlist = floorlist;
 		this.numOfTens = numOfTens;
 		this.numOfFloors = numOfFloors;
 		this.residenceID = residenceID;
+		this.StudentHousing=StudentHouse;
 	}
 	public residence() {
 		super();
@@ -49,6 +51,14 @@ public class residence {
 		}
 		return null;
 	}
+	public boolean isStudentHousing() {
+		// TODO Auto-generated method stub
+		return this.StudentHousing;
+	}
+	public void setStudentHousing(boolean studentHousing) {
+		StudentHousing = studentHousing;
+	}
+	
 	
 	
 	
