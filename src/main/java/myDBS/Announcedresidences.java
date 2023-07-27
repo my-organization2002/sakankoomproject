@@ -17,7 +17,34 @@ public class Announcedresidences {
 	   private Announcedresidences() {
 		    throw new IllegalStateException("Utility class");
 	   }
-	   
+	   static {
+		   tenants Ali= new tenants("Ali","Ali@email.com","0594234232");
+		    tenants Omar= new tenants("Omar","Omar@email.com","0594232231");
+		   ArrayList<tenants> Tenants=new ArrayList();
+		   Tenants.add(Omar);
+		   Tenants.add(Ali);
+		   appartment App=new appartment(1,4,2,2,false,Tenants);
+		   ArrayList<appartment>Appartments=new ArrayList();
+		   Appartments.add(App);
+		   floors Floor=new floors(Appartments,3,40);
+		   ArrayList<floors>Floors=new ArrayList();
+		   Floors.add(Floor);
+		   residence myres=new residence(Floors, 125, 9, 1,true);
+		    String residenceName="Sakan Nablus";
+		    String address="Nablus-Rafidia";
+		    String description="This is a student sakan";
+			 int monthlyRent=450;
+			 boolean rentInclusive=true;
+			 String contactName="Saleem";
+			 String email="Saleem@email.com";
+			 String phoneNumber="+1 (555) 123-4567";
+			 boolean announced=true;
+			 residenceAnnounced resAnn=new residenceAnnounced(myres,residenceName,
+					 address,description,monthlyRent,rentInclusive
+					 ,contactName,email,phoneNumber,announced,null,null, 1);
+			 announceResidencesList.add(resAnn);
+			 
+	   }
        
 
 	public static List<residenceAnnounced> getAnnouncedResidences() {

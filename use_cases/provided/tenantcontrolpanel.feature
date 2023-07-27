@@ -2,18 +2,9 @@ Feature: Tenant Control Panel
   Background:
     Given The Tenant is Logged in
     And The Tenant has Booked an Appartment
-Scenario: Tenant views personal data
-Given the tenant has made a booking
-When the tenant accesses the control panel
-Then the tenant can view their personal data
-
-
-Scenario: Tenant views residence owner information
-Given the tenant has made a booking
-When the tenant accesses the control panel
-Then the tenant can view the name and contact information of the residence owner
-
-Scenario: Tenant views rent payment details
-Given the tenant has made a booking
-When the tenant accesses the control panel
-Then the tenant can see when the next rent payment is due
+Scenario:  presence of tenant control panel
+Then the tenant can see his name "Ahmad" and his age 21 and his email "Ahmad@email.com" and his phoneNumber "0542111222"
+And the tenant can see the residence owner information:
+|Contact Name| Email|Phone|
+      | Saleem           | Saleem@email.com       |+1 (555) 123-4567       |
+And the rent payment deadline being at "31-08-2023"

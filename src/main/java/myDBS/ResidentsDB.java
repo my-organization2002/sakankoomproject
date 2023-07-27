@@ -34,6 +34,7 @@ public class ResidentsDB {
 		   ArrayList<floors>Floors=new ArrayList();
 		   Floors.add(Floor);
 		   ResidencesList.add(new residence(Floors, 125, 9, 1,true));
+		   
 	    }
 
 	public static List<residence> getResidences() {
