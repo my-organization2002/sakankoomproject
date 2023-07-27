@@ -3,6 +3,7 @@ public class tenants {
 	private String name;
 	private String email;
 	private String phoneNumber;
+	private boolean loggedIn;
 	public String getName() {
 		return name;
 	}
@@ -26,6 +27,20 @@ public class tenants {
 		this.name = name;
 		this.email = email;
 		this.phoneNumber = phoneNumber;
+		this.loggedIn=false;
 	}
+	public tenants() {
+		// TODO Auto-generated constructor stub
+		this.loggedIn=false;
+	}
+	public void setLoggedIn(boolean b) {
+		// TODO Auto-generated method stub
+		this.loggedIn=b;
+		
+	}
+	public boolean isLoggedIn() {
+		return loggedIn;
+	}
+	
 	
 }

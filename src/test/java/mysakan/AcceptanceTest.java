@@ -8,7 +8,7 @@ import io.cucumber.junit.CucumberOptions.SnippetType;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-    features = "use_cases/provided/owner.feature",
+    features = "use_cases/provided/FurnitureAdvertising.feature",
     plugin = {"summary", "html:target/cucumber/wikipedia.html"},
     monochrome = true,
     snippets = SnippetType.CAMELCASE,
