@@ -1,7 +1,7 @@
 package mysakan;
 import io.cucumber.java.en.*;
 
-public class Administrator {
+public class AdministratorStep {
 	@Given("The Administrator is logged in")
 	public void the_administrator_is_logged_in() {
 	    // Write code here that turns the phrase above into concrete actions

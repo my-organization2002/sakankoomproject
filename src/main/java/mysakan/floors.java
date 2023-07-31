@@ -5,6 +5,10 @@ public class floors {
 	ArrayList <appartment> appartmentlist=new ArrayList();
 	private int floorID;
 	private int numOfApartements;
+	
+	public floors() {
+		super();
+	}
 	public int getFloorID() {
 		return floorID;
 	}
@@ -23,6 +27,7 @@ public class floors {
 		this.floorID = floorID;
 		this.numOfApartements = numOfApartements;
 	}
+	
 	public appartment selectApartment(Integer apartmentId) {
 		// TODO Auto-generated method stub
 		for(appartment appartmentunit:appartmentlist) {

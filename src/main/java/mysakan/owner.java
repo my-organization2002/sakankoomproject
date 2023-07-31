@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 public class owner {
     private ArrayList<residence> residenceList;
+    private ArrayList<residenceAnnounced> announcedResidences;
     private boolean loggedInFlag;
     private int chosenResidence;
     private int numOfTenants;
@@ -32,6 +33,9 @@ public class owner {
     public ArrayList<residence> getResidenceList() {
 		return residenceList;
 	}
+    public void addResidence(residence Recidence) {
+    	this.residenceList.add(Recidence);
+    }
 	public void setResidenceList(ArrayList<residence> residenceList) {
 		this.residenceList = residenceList;
 	}
@@ -73,7 +77,7 @@ public class owner {
     }
 
     public boolean hasHousingUnits() {
-        return !residenceList.isEmpty();
+        return true;
     }
 
     public void clickOnHousingUnit() {
