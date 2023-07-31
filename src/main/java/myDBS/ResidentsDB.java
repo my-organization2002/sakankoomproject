@@ -33,7 +33,7 @@ public class ResidentsDB {
 		   floors Floor=new floors(Appartments,3,40);
 		   ArrayList<floors>Floors=new ArrayList();
 		   Floors.add(Floor);
-		   ResidencesList.add(new residence(Floors, 125, 9, 1,true));
+		   ResidencesList.add(new residence(Floors, 125, 9, 1,true,""));
 		   
 	    }
 

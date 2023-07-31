@@ -132,6 +132,11 @@ public class owner {
 		}
 		return null;
 	}
+	public void clearResidences() {
+		// TODO Auto-generated method stub
+		this.residenceList.clear();
+		
+	}
 
     // Add methods to add residences and perform other relevant operations
 

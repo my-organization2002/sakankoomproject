@@ -1,28 +1,10 @@
-#Author: your.email@your.domain.com
-#Keywords Summary :
-#Feature: List of scenarios.
-#Scenario: Business rule through list of steps with arguments.
-#Given: Some precondition step
-#When: Some key actions
-#Then: To observe outcomes or validation
-#And,But: To enumerate more Given,When,Then steps
-#Scenario Outline: List of steps for data-driven as an Examples and <placeholder>
-#Examples: Container for s table
-#Background: List of steps run before each of the scenarios
-#""" (Doc Strings)
-#| (Data Tables)
-#@ (Tags/Labels):To group Scenarios
-#<> (placeholder)
-#""
-## (Comments)
-#Sample Feature Definition Template
 Feature: Announce Private Residence
   As a housing owner
   I want to announce my private residence for rent
   So that potential tenants can view the available options and contact me
 
   Background:
-    Given The owner is Logged in
+    Given That owner is Logged in
 
   Scenario: Announce a Private Residence With All Options
     When I choose to announce my private residence with ID 1
@@ -46,9 +28,9 @@ Feature: Announce Private Residence
       | Email           | john.doe@example.com       |
       | Phone           | +1 (555) 123-4567         |
     Then the private residence should be successfully announced
-    
+
   Scenario: Announce a Private Residence With Non-Existing ID
-  Given I am trying to add a residence with ID 5 that does not exist
+    Given I am trying to add a residence with ID 5 that does not exist
     And I add the following photos:
       | Photo Name       | Photo URL                              |
       | Living Room      | https://example.com/photos/living.jpg   |
@@ -69,4 +51,31 @@ Feature: Announce Private Residence
       | Email           | john.doe@example.com       |
       | Phone           | +1 (555) 123-4567         |
     Then I Should get A Message "The ID of the residence you're trying to announce does not exist"
-   
+
+  Scenario: Select housing unit with matching ID
+    Given The owner has the following housing units:
+      | Residence ID | Residence Name |
+      | 1            | Apartment A    |
+      | 2            | Apartment B    |
+    When The owner selects housing unit with ID 1
+    Then The selected housing unit should be "Apartment A"
+
+  Scenario: Select housing unit with non-matching ID
+    Given The owner has the following housing units:
+      | Residence ID | Residence Name |
+      | 1            | Apartment A    |
+      | 2            | Apartment B    |
+    When The owner selects housing unit with ID 3
+    Then No housing unit should be selected
+
+  Scenario: Select housing unit from an empty list
+    Given The owner has no housing units
+    When The owner selects housing unit with ID 1
+    Then No housing unit should be selected
+
+  Scenario: Select housing unit from a list with a single unit
+    Given The owner has the following housing units:
+      | Residence ID | Residence Name |
+      | 1            | Apartment A    |
+    When The owner selects housing unit with ID 1
+    Then The selected housing unit should be "Apartment A"
