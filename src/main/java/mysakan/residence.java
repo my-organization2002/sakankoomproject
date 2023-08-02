@@ -8,21 +8,28 @@ public class residence {
 	private int numOfFloors;
 	private int residenceID;
 	private boolean StudentHousing;
+	private String residenceName;
 	
 	
 
-	public residence(ArrayList<floors> floorlist, int numOfTens, int numOfFloors, int residenceID, boolean StudentHouse) {
+	public residence(ArrayList<floors> floorlist, int numOfTens, int numOfFloors, int residenceID, boolean StudentHouse,String residenceName) {
 		super();
 		this.floorlist = floorlist;
 		this.numOfTens = numOfTens;
 		this.numOfFloors = numOfFloors;
 		this.residenceID = residenceID;
 		this.StudentHousing=StudentHouse;
+		this.residenceName=residenceName;
 	}
 	public residence() {
 		super();
 	}
 	
+//	public residence(Integer residenceID2, String residenceName) {
+//		// TODO Auto-generated constructor stub
+//		this.residenceID=residenceID2;
+//		this.residenceName=residenceName;
+//	}
 	public int getNumOfTens() {
 		return numOfTens;
 	}
@@ -58,6 +65,13 @@ public class residence {
 	public void setStudentHousing(boolean studentHousing) {
 		StudentHousing = studentHousing;
 	}
+	public String getResidenceName() {
+		return residenceName;
+	}
+	public void setResidenceName(String residenceName) {
+		this.residenceName = residenceName;
+	}
+	
 	
 	
 	

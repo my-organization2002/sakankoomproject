@@ -29,7 +29,7 @@ public class Announcedresidences {
 		   floors Floor=new floors(Appartments,3,40);
 		   ArrayList<floors>Floors=new ArrayList();
 		   Floors.add(Floor);
-		   residence myres=new residence(Floors, 125, 9, 1,true);
+		   residence myres=new residence(Floors, 125, 9, 1,true,"");
 		    String residenceName="Sakan Nablus";
 		    String address="Nablus-Rafidia";
 		    String description="This is a student sakan";
