@@ -14,6 +14,7 @@ public class residenceAnnounced {
 	private String email;
 	private String phoneNumber;
 	private boolean announced;
+	private  boolean Advertised;
 	ArrayList <Photos> Photos=new ArrayList();
 	ArrayList <String> availableServices=new ArrayList();
 	private int recidenceID;
@@ -125,6 +126,14 @@ public class residenceAnnounced {
 
 	public void setRecidenceID(int recidenceID) {
 		this.recidenceID = recidenceID;
+	}
+
+	public boolean isAdvertised() {
+		return Advertised;
+	}
+
+	public void setAdvertised(boolean advertised) {
+		Advertised = advertised;
 	}
 	
 	
