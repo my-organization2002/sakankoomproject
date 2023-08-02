@@ -25,10 +25,16 @@ public class MyApp {
 	public MyApp() {
 		super();
 	}
-	public boolean login(String username2, String password2) {
+	public static String login(String username2, String password2) {
 		// TODO Auto-generated method stub
-		return false;
+		if(AdministratorsDB.containsKey(username2, password2)) return "ADMIN";
+		else if(OwnersDB.containsKey(username2, password2))return "OWNER";
+		else if(TenantsDB.containsKey(username2, password2))return "TENANT";
+		else return "N/F";
+		
 	}
+	
+	
 	
 
 }
