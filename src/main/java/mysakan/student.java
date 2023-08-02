@@ -9,9 +9,7 @@ public class student extends tenants {
         this.universityMajor = universityMajor;
     }
 
-    public student() {
-        super(); // Call the no-argument constructor of the superclass
-    }
+   
 
     // Getter and Setter for universityMajor
     public String getUniversityMajor() {

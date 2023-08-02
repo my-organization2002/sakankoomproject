@@ -10,6 +10,8 @@ public class owner {
     private int chosenResidence;
     private int numOfTenants;
     private int numOfFloors;
+    private String username;
+    private String password;
     private Scanner input;
 
     public owner(ArrayList<residence> residenceList) {
@@ -29,8 +31,13 @@ public class owner {
         chosenResidence=0;
     }
     
+    
 
-    public ArrayList<residence> getResidenceList() {
+//    public owner(String username, String password) {
+//		this.username = username;
+//		this.password = password;
+//	}
+	public ArrayList<residence> getResidenceList() {
 		return residenceList;
 	}
     public void addResidence(residence Recidence) {
@@ -137,6 +144,19 @@ public class owner {
 		this.residenceList.clear();
 		
 	}
+	public String getUsername() {
+		return username;
+	}
+	public void setUsername(String username) {
+		this.username = username;
+	}
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	
 
     // Add methods to add residences and perform other relevant operations
 

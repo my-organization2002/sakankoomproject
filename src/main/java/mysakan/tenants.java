@@ -1,10 +1,12 @@
 package mysakan;
-public class tenants {
+public class tenants  {
 	private String name;
 	private String email;
 	private String phoneNumber;
 	private boolean loggedIn;
 	private int age;
+	private String username;
+	private String password;
 	public String getName() {
 		return name;
 	}
@@ -45,9 +47,14 @@ public class tenants {
 	public void setAge(int age) {
 		this.age = age;
 	}
+	public tenants(String username,String password) {
+		// TODO Auto-generated constructor stub
+		this.username=username;
+		this.password=password;
+		this.loggedIn=false;
+	}
 	public tenants() {
 		// TODO Auto-generated constructor stub
-		this.loggedIn=false;
 	}
 	public void setLoggedIn(boolean b) {
 		// TODO Auto-generated method stub
@@ -57,6 +64,19 @@ public class tenants {
 	public boolean isLoggedIn() {
 		return loggedIn;
 	}
+	public String getUsername() {
+		return username;
+	}
+	public void setUsername(String username) {
+		this.username = username;
+	}
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	
 	
 	
 }
