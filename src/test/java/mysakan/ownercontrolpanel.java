@@ -1,7 +1,7 @@
 package mysakan;
 
 import io.cucumber.java.en.*;
-import myDBS.ResidentsDB;
+import mydbs.ResidentsDB;
 
 import static org.junit.Assert.assertTrue;
 

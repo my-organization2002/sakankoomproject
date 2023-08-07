@@ -2,8 +2,8 @@ package mysakan;
 
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.*;
-import myDBS.Announcedresidences;
-import myDBS.ResidentsDB;
+import mydbs.Announcedresidences;
+import mydbs.ResidentsDB;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;

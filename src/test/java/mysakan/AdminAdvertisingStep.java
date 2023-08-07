@@ -4,8 +4,8 @@ import static org.junit.Assert.*;
 
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.*;
-import myDBS.Announcedresidences;
-import myDBS.ResidentsDB;
+import mydbs.Announcedresidences;
+import mydbs.ResidentsDB;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,7 +1,7 @@
 package mysakan;
 
 import io.cucumber.java.en.*;
-import myDBS.ReservationsDB;
+import mydbs.ReservationsDB;
 
 import java.util.HashMap;
 import java.util.Map;

@@ -1,5 +1,5 @@
 package mysakan;
-import myDBS.*;
+import mydbs.*;
 public class MyApp {
 	private String username;
 	private String password;

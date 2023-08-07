@@ -1,4 +1,4 @@
-package myDBS;
+package mydbs;
 
 import java.util.ArrayList;
 import java.util.HashMap;
