@@ -6,7 +6,7 @@
   <properties>
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
-     <sonar.organization>najahcon</sonar.organization>
+     <sonar.organization>my-organization2002</sonar.organization>
   <sonar.host.url>https://sonarcloud.io</sonar.host.url>
 </properties>
   
