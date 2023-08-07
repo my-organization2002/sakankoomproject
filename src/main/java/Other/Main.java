@@ -7,11 +7,12 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         MyApp userApp = new MyApp();
-        boolean running = true;
+        boolean running_logging = true;
+        boolean running_logged = false;
         String username, password;
         User loggedInUser = null;
 
-        while (running) {
+        while (running_logging) {
             System.out.println("Admin/tenant/owner dashboard");
             System.out.print("Enter username: ");
             username = scanner.nextLine();
@@ -21,12 +22,30 @@ public class Main {
             String loggedIn = MyApp.login(username, password);
             if(loggedIn.equals("ADMIN")) {
             	System.out.println("ADMIN LOGIN");
+            	Administrator adminUser=AdministratorsDB.getAdmin(username,password);
+            	running_logged=true;
+            	running_logging=false;
+            	while(running_logged) {
+            		showSystemAdminDashboard( adminUser);
+            	}
             }
             else if(loggedIn.equals("OWNER")) {
             	System.out.println("OWNER LOGIN");
+            	owner ownerUser=OwnersDB.getOwner(username,password);
+            	running_logged=true;
+            	running_logging=false;
+            	while(running_logged) {
+            		showHousingOwnerDashboard( ownerUser);
+            	}
             }
             else if(loggedIn.equals("TENANT")) {
             	System.out.println("TENANT LOGIN");
+            	tenants tenantsUser=TenantsDB.getTenant(username,password);
+            	running_logged=true;
+            	running_logging=false;
+            	while(running_logged) {
+            		showTenantDashboard( tenantsUser);
+            	}
             }
             else {
             	System.out.println("NOT FOUND!!");

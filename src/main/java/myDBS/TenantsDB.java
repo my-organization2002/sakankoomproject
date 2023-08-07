@@ -3,7 +3,6 @@ package myDBS;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
-
 import mysakan.*;
 
 public class TenantsDB {
@@ -42,6 +41,20 @@ public class TenantsDB {
 			
 		}
 		return false;
+	}
+
+	public static tenants getTenant(String username, String password) {
+		// TODO Auto-generated method stub
+		for(tenants tenant:tenantsList)
+		{
+			
+			if(tenant.getUsername().equals(username)&&tenant.getPassword().equals(password)) 
+			{
+				return tenant;
+			}
+			
+		}
+		return null;
 	}
 
     // Add other methods as needed to interact with the tenants list
