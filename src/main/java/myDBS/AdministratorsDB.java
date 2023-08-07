@@ -45,5 +45,19 @@ public class AdministratorsDB {
 		return false;
 	}
 
+	public static Administrator getAdmin(String username, String password) {
+		// TODO Auto-generated method stub
+		for(Administrator admin:administratorsList)
+		{
+			
+			if(admin.getUsername().equals(username)&&admin.getPassword().equals(password)) 
+			{
+				return admin;
+			}
+			
+		}
+		return null;
+	}
+
     // Add other methods as needed to interact with the administrators list
 }

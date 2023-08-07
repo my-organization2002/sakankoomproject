@@ -48,5 +48,19 @@ public class OwnersDB {
 		return false;
 	}
 
+	public static owner getOwner(String username, String password) {
+		// TODO Auto-generated method stub
+		for(owner ownerr:ownersList)
+		{
+			
+			if(ownerr.getUsername().equals(username)&&ownerr.getPassword().equals(password)) 
+			{
+				return ownerr;
+			}
+			
+		}
+		return null;
+	}
+
     // Add other methods as needed to interact with the owners list
 }
