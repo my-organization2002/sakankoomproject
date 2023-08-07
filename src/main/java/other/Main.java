@@ -3,13 +3,10 @@ import mysakan.*;
 
 import java.io.Console;
 import java.util.Scanner;
-import java.util.logging.Logger;
 
-import io.cucumber.plugin.event.Node.Example;
 import mydbs.*;
 
 public class Main {
-    private static final Logger logger = Logger.getLogger(Main.class.getName());
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         MyApp userApp = new MyApp();
@@ -18,10 +15,8 @@ public class Main {
         String username, password;
         User loggedInUser = null;
         int choice;
-        LogLevelSetter.setLevel(logger);
-        
         while (running_logging) {
-            logger.info("Admin/tenant/owner dashboard");
+            System.out.println("Admin/tenant/owner dashboard");
             System.out.print("Enter username: ");
             username = scanner.nextLine();
 
@@ -29,7 +24,7 @@ public class Main {
             password = scanner.nextLine();
             String loggedIn = MyApp.login(username, password);
             if(loggedIn.equals("ADMIN")) {
-            	logger.info("ADMIN LOGIN");
+            	System.out.println("ADMIN LOGIN");
             	Administrator adminUser=AdministratorsDB.getAdmin(username,password);
             	running_logged=true;
             	running_logging=false;
@@ -51,7 +46,7 @@ public class Main {
             	}
             }
             else if(loggedIn.equals("OWNER")) {
-            	logger.info("OWNER LOGIN");
+            	System.out.println("OWNER LOGIN");
             	owner ownerUser=OwnersDB.getOwner(username,password);
             	running_logged=true;
             	running_logging=false;
@@ -73,7 +68,7 @@ public class Main {
             	}
             }
             else if(loggedIn.equals("TENANT")) {
-            	logger.info("TENANT LOGIN");
+            	System.out.println("TENANT LOGIN");
             	tenants tenantsUser=TenantsDB.getTenant(username,password);
             	running_logged=true;
             	running_logging=false;
@@ -95,7 +90,7 @@ public class Main {
             	}
             }
             else {
-            	logger.info("NOT FOUND!!");
+            	System.out.println("NOT FOUND!!");
             }
 //            if (loggedInUser != null) {
 //                // User successfully logged in, show the corresponding dashboard
@@ -119,12 +114,11 @@ public class Main {
     private static void showTenantDashboard(tenants tenant) {
         // Implement tenant dashboard functionality here based on product functions and user characteristics
         // For example:
-    	
-        logger.info("Welcome, " + tenant.getUsername() + "!");
-        logger.info("1. View available housing");
-        logger.info("2. View pictures and details of housing");
-        logger.info("3. Book accommodation");
-        logger.info("4. Logout");
+        System.out.println("Welcome, " + tenant.getUsername() + "!");
+        System.out.println("1. View available housing");
+        System.out.println("2. View pictures and details of housing");
+        System.out.println("3. Book accommodation");
+        System.out.println("4. Logout");
         // Add more options based on tenant functions
         // Example: 4. View personal data, 5. View residence owner details, etc.
     }
@@ -132,11 +126,11 @@ public class Main {
     private static void showHousingOwnerDashboard(owner housingOwner) {
         // Implement housing owner dashboard functionality here based on product functions and user characteristics
         // For example:
-        logger.info("Welcome, " + housingOwner.getUsername() + "!");
-        logger.info("1. Add new housing unit");
-        logger.info("2. View list of your housing units");
-        logger.info("3. View tenant details for a specific housing unit");
-        logger.info("4. Logout");
+        System.out.println("Welcome, " + housingOwner.getUsername() + "!");
+        System.out.println("1. Add new housing unit");
+        System.out.println("2. View list of your housing units");
+        System.out.println("3. View tenant details for a specific housing unit");
+        System.out.println("4. Logout");
         // Add more options based on housing owner functions
         // Example: 4. Modify housing unit details, 5. View requests for housing advertisement, etc.
     }
@@ -144,11 +138,11 @@ public class Main {
     private static void showSystemAdminDashboard(Administrator systemAdministrator) {
         // Implement system administrator dashboard functionality here based on product functions and user characteristics
         // For example:
-        logger.info("Welcome, System Administrator!");
-        logger.info("1. View requests for housing advertisement");
-        logger.info("2. Watch reservations via the system");
-        logger.info("3. Add and advertise housing units");
-        logger.info("4. Logout");
+        System.out.println("Welcome, System Administrator!");
+        System.out.println("1. View requests for housing advertisement");
+        System.out.println("2. Watch reservations via the system");
+        System.out.println("3. Add and advertise housing units");
+        System.out.println("4. Logout");
         // Add more options based on system administrator functions
         // Example: 4. Modify housing unit data, 5. Manage users, etc.
     }
