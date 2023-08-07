@@ -1,6 +1,8 @@
-package Other;
+package other;
 import mysakan.*;
 import myDBS.*;
+
+import java.io.Console;
 import java.util.Scanner;
 
 public class Main {
@@ -11,7 +13,7 @@ public class Main {
         boolean running_logged = false;
         String username, password;
         User loggedInUser = null;
-
+        int choice;
         while (running_logging) {
             System.out.println("Admin/tenant/owner dashboard");
             System.out.print("Enter username: ");
@@ -27,6 +29,19 @@ public class Main {
             	running_logging=false;
             	while(running_logged) {
             		showSystemAdminDashboard( adminUser);
+            		choice=scanner.nextInt();
+            		switch(choice) {
+            		case 1:
+            			break;
+            		case 2:
+            			break;
+            		case 3:
+            			break;
+            		case 4:
+            			break;
+            		default: running_logged=false;
+            			break;
+            		} //case
             	}
             }
             else if(loggedIn.equals("OWNER")) {
@@ -36,6 +51,19 @@ public class Main {
             	running_logging=false;
             	while(running_logged) {
             		showHousingOwnerDashboard( ownerUser);
+            		choice=scanner.nextInt();
+            		switch(choice) {
+            		case 1:
+            			break;
+            		case 2:
+            			break;
+            		case 3:
+            			break;
+            		case 4:
+            			break;
+            		default: running_logged=false;
+            			break;
+            		} //case
             	}
             }
             else if(loggedIn.equals("TENANT")) {
@@ -45,6 +73,19 @@ public class Main {
             	running_logging=false;
             	while(running_logged) {
             		showTenantDashboard( tenantsUser);
+            		choice=scanner.nextInt();
+            		switch(choice) {
+            		case 1:
+            			break;
+            		case 2:
+            			break;
+            		case 3:
+            			break;
+            		case 4:
+            			break;
+            		default: running_logged=false;
+            			break;
+            		} //case
             	}
             }
             else {
@@ -76,6 +117,7 @@ public class Main {
         System.out.println("1. View available housing");
         System.out.println("2. View pictures and details of housing");
         System.out.println("3. Book accommodation");
+        System.out.println("4. Logout");
         // Add more options based on tenant functions
         // Example: 4. View personal data, 5. View residence owner details, etc.
     }
@@ -87,6 +129,7 @@ public class Main {
         System.out.println("1. Add new housing unit");
         System.out.println("2. View list of your housing units");
         System.out.println("3. View tenant details for a specific housing unit");
+        System.out.println("4. Logout");
         // Add more options based on housing owner functions
         // Example: 4. Modify housing unit details, 5. View requests for housing advertisement, etc.
     }
@@ -98,6 +141,7 @@ public class Main {
         System.out.println("1. View requests for housing advertisement");
         System.out.println("2. Watch reservations via the system");
         System.out.println("3. Add and advertise housing units");
+        System.out.println("4. Logout");
         // Add more options based on system administrator functions
         // Example: 4. Modify housing unit data, 5. Manage users, etc.
     }
