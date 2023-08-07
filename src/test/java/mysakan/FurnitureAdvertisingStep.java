@@ -1,7 +1,7 @@
 package mysakan;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.*;
-import myDBS.Advertisements;
+import mydbs.Advertisements;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;

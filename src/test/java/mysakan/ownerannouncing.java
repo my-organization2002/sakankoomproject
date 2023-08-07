@@ -9,8 +9,8 @@ import java.util.List;
 import java.util.Map;
 
 import io.cucumber.java.en.*;
-import myDBS.Announcedresidences;
-import myDBS.ResidentsDB;
+import mydbs.Announcedresidences;
+import mydbs.ResidentsDB;
 
 public class ownerannouncing {
     owner housingowner;

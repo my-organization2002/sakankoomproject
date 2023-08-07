@@ -1,9 +1,10 @@
 package other;
 import mysakan.*;
-import myDBS.*;
 
 import java.io.Console;
 import java.util.Scanner;
+
+import mydbs.*;
 
 public class Main {
     public static void main(String[] args) {
