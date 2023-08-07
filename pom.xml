@@ -8,6 +8,7 @@
     <maven.compiler.target>1.8</maven.compiler.target>
      <sonar.organization>my-organization2002</sonar.organization>
   <sonar.host.url>https://sonarcloud.io</sonar.host.url>
+  <sonar.login>49bcdd3ed2ddd3ebaef83b71e0bd70bcd78ecfb0</sonar.login>
 </properties>
   
 <dependencies>
