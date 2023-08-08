@@ -12,7 +12,6 @@ import io.cucumber.junit.CucumberOptions.SnippetType;
     plugin = {"summary", "html:target/cucumber/wikipedia.html"},
     snippets = SnippetType.CAMELCASE,
     glue = "mysakan"
-//    tags = "@FurnitureAdvertising" // Add your desired tag here
 )
 public class AcceptanceTest {
 
