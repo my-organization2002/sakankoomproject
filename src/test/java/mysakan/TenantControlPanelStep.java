@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.Map;
 
 public class TenantControlPanelStep {
-    private residence selectedApartment;
+    private Residence selectedApartment;
     private String tenantName;
     private int tenantAge;
     private String tenantEmail;
@@ -23,7 +23,7 @@ public class TenantControlPanelStep {
     private String ownerEmail;
     private String ownerPhone;
     private String rentPaymentDeadline;
-    public TenantControlPanelStep(residence selectedApartment) {
+    public TenantControlPanelStep(Residence selectedApartment) {
 		super();
 		this.selectedApartment = selectedApartment;
 	}

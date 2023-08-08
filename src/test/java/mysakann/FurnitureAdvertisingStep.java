@@ -2,7 +2,7 @@ package mysakann;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.*;
 import mydbs.Advertisements;
-import mysakan.tenants;
+import mysakan.Tenants;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -14,7 +14,7 @@ import java.util.Map;
 
 public class FurnitureAdvertisingStep {
     private List<Map<String, String>> furnitureData; // to store the data from the data table
-    tenants Tenant=new tenants();
+    Tenants Tenant=new Tenants();
     
    // public FurnitureAdvertisingStep(tenants tenant) {
 		//super();
@@ -58,14 +58,14 @@ public class FurnitureAdvertisingStep {
         for (Map<String, String> furniture : furnitureData) {
             Advertisements.advertise(furniture);
         }
-        assertTrue(!(Advertisements.getAds().isEmpty()));
+        assertTrue(!(Advertisements.getads().isEmpty()));
     }
 
     @Then("the tenant can view the posted furniture advertisements")
     public void theTenantCanViewThePostedFurnitureAdvertisements() {
         // Implement the logic to verify that the tenant can view the posted furniture advertisements
         // For example, you can get the list of posted advertisements from the app and verify it against furnitureData
-        List<Map<String, String>> postedAdvertisements = Advertisements.getAds();
+        List<Map<String, String>> postedAdvertisements = Advertisements.getads();
         
         // Implement the assertions here based on your application logic
         // For example, you can check if the 'postedAdvertisements' list contains all the furnitureData

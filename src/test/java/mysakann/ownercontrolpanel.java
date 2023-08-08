@@ -2,20 +2,20 @@ package mysakann;
 
 import io.cucumber.java.en.*;
 import mydbs.ResidentsDB;
-import mysakan.appartment;
-import mysakan.floors;
-import mysakan.owner;
-import mysakan.residence;
+import mysakan.Apartment;
+import mysakan.Floors;
+import mysakan.Owner;
+import mysakan.Residence;
 
 import static org.junit.Assert.assertTrue;
 
 public class ownercontrolpanel {
-    owner housingowner;
-    residence selectedHousingUnit;
-    floors selectedFloor;
-    appartment selectedApartment;
+    Owner housingowner;
+    Residence selectedHousingUnit;
+    Floors selectedFloor;
+    Apartment selectedApartment;
 
-    public ownercontrolpanel(owner housingowner) {
+    public ownercontrolpanel(Owner housingowner) {
         this.housingowner = housingowner;
     } // Dependency injection
     

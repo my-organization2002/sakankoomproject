@@ -3,8 +3,8 @@ package mysakan;
 import java.util.ArrayList;
 import java.util.List;
 
-public class residenceAnnounced {
-	private residence Recidence;
+public class ResidenceAnnounced {
+	private Residence myRecidence;
 	private String residenceName;
 	private String address;
 	private String description;
@@ -14,17 +14,17 @@ public class residenceAnnounced {
 	private String email;
 	private String phoneNumber;
 	private boolean announced;
-	private  boolean Advertised;
-	ArrayList <Photos> Photos=new ArrayList();
-	ArrayList <String> availableServices=new ArrayList();
+	private  boolean advertised;
+	ArrayList <Photos> photos=new ArrayList<>();
+	ArrayList <String> availableServices=new ArrayList<>();
 	private int recidenceID;
 	
 
-	public residenceAnnounced(residence recidence, String residenceName, String address, String description,
+	public ResidenceAnnounced(Residence recidence, String residenceName, String address, String description,
 			int monthlyRent, boolean rentInclusive, String contactName, String email, String phoneNumber,
-			boolean announced, ArrayList<mysakan.Photos> photos, ArrayList<String> availableServices, int recidenceID) {
+			boolean announced, List<mysakan.Photos> photos, List<String> availableServices, int recidenceID) {
 		super();
-		Recidence = recidence;
+		myRecidence = recidence;
 		this.residenceName = residenceName;
 		this.address = address;
 		this.description = description;
@@ -34,12 +34,12 @@ public class residenceAnnounced {
 		this.email = email;
 		this.phoneNumber = phoneNumber;
 		this.announced = announced;
-		Photos = photos;
-		this.availableServices = availableServices;
+		this.photos = (ArrayList<Photos>) photos;
+		this.availableServices = (ArrayList<String>) availableServices;
 		this.recidenceID = recidenceID;
 	}
 
-	public residenceAnnounced() {
+	public ResidenceAnnounced() {
 		super();
 	}
 
@@ -50,7 +50,7 @@ public class residenceAnnounced {
 		this.residenceName = residenceName;
 	}
 	public void addPhoto(String photoName, String photoURL) {
-		this.Photos.add(new Photos(photoName,photoURL));
+		this.photos.add(new Photos(photoName,photoURL));
 	}
 	public String getAddress() {
 		return address;
@@ -66,7 +66,7 @@ public class residenceAnnounced {
 	}
 	public void setAvailableServices(List<String> availableServices) {
 	    // Create a new ArrayList and add all elements from the original list
-		this.availableServices = new ArrayList<String>(availableServices);
+		this.availableServices =  (ArrayList<String>) availableServices;
 
 	}
 	public void setMonthlyRent(Integer rentAmount) {
@@ -95,11 +95,11 @@ public class residenceAnnounced {
 	public void setPhoneNumber(String phoneNumber) {
 		this.phoneNumber = phoneNumber;
 	}
-	public residence getRecidence() {
-		return Recidence;
+	public Residence getRecidence() {
+		return this.myRecidence;
 	}
-	public void setRecidence(residence recidence) {
-		this.Recidence = recidence;
+	public void setRecidence(Residence recidence) {
+		this.myRecidence = recidence;
 	}
 	public int getMonthlyRent() {
 		return monthlyRent;
@@ -124,11 +124,11 @@ public class residenceAnnounced {
 	}
 
 	public boolean isAdvertised() {
-		return Advertised;
+		return advertised;
 	}
 
 	public void setAdvertised(boolean advertised) {
-		Advertised = advertised;
+		this.advertised = advertised;
 	}
 	
 	

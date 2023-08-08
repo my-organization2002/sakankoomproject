@@ -6,29 +6,28 @@ import mydbs.*;
 import mysakan.Administrator;
 import mysakan.MyApp;
 import mysakan.User;
-import mysakan.appartment;
-import mysakan.floors;
-import mysakan.owner;
-import mysakan.residence;
-import mysakan.residenceAnnounced;
-import mysakan.tenants;
+import mysakan.Apartment;
+import mysakan.Floors;
+import mysakan.Owner;
+import mysakan.Residence;
+import mysakan.ResidenceAnnounced;
+import mysakan.Tenants;
 
 public class Main {
     private static final Logger logger = Logger.getLogger(Main.class.getName());
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        MyApp userApp = new MyApp();
-        boolean running_logging = true;
-        boolean running_logged = false;
-        String username, password;
-        User loggedInUser = null;
+        boolean runningLogging = true;
+        boolean runningLogged = false;
+        String username;
+        String password;
         int choice;
         int choice3=1;
-        residenceAnnounced ressAn;
-        boolean choseflag=false;
+        ResidenceAnnounced ressAn;
+//        boolean choseflag=false;
         LogLevelSetter.setLevel(logger);
         
-        while (running_logging) {
+        while (runningLogging) {
             logger.info("Admin/tenant/owner dashboard");
             System.out.print("Enter username: ");
             username = scanner.nextLine();
@@ -39,9 +38,9 @@ public class Main {
             if(loggedIn.equals("ADMIN")) {
             	logger.info("ADMIN LOGIN");
             	Administrator adminUser=AdministratorsDB.getAdmin(username,password);
-            	running_logged=true;
-            	running_logging=false;
-            	while(running_logged) {
+            	runningLogged=true;
+            	runningLogging=false;
+            	while(runningLogged) {
             		showSystemAdminDashboard( adminUser);
 //                    logger.info("1. View requests for housing advertisement");
 //                    logger.info("2. Watch reservations via the system");
@@ -57,7 +56,7 @@ public class Main {
             		case 3:
             			logger.info("Adds a housing unit and advertises it");
             			break;
-            		case 4: running_logged=false;
+            		case 4: runningLogged=false;
         				break;
             		default: logger.info("You entered wrong command!");
         				break;
@@ -66,10 +65,10 @@ public class Main {
             }
             else if(loggedIn.equals("OWNER")) {
             	logger.info("OWNER LOGIN");
-            	owner ownerUser=OwnersDB.getOwner(username,password);
-            	running_logged=true;
-            	running_logging=false;
-            	while(running_logged) {
+            	Owner ownerUser=OwnersDB.getOwner(username,password);
+            	runningLogged=true;
+            	runningLogging=false;
+            	while(runningLogged) {
             		showHousingOwnerDashboard( ownerUser);
 //            		logger.info("1. Add new housing unit");
 //                    logger.info("2. View list of your housing units");
@@ -77,14 +76,15 @@ public class Main {
             		choice=scanner.nextInt();
             		switch(choice) {
             		case 1:
-            			int newID,newNumOfF;
+            			int newID;
+            			int newNumOfF;
             			String newName;
             			int isStudentHousing;
             			boolean cont=true;
-            			residence newRes=new residence();
+            			Residence newRes=new Residence();
             			logger.config("Select The Residence ID");
             			newID=scanner.nextInt();
-            			for(residence res:ResidentsDB.getResidences()) {
+            			for(Residence res:ResidentsDB.getResidences()) {
             				if (res.getResidenceID()==newID){
             					cont=false;
             					logger.info("ID is not unique!!");
@@ -108,7 +108,7 @@ public class Main {
             			break;
             		case 2:
             			int number=1;
-            			for(residence res:ResidentsDB.getResidences()) {
+            			for(Residence res:ResidentsDB.getResidences()) {
             				if (res.getOwnerName().equals(username)){
             					logger.info(number+".\n");
                 				logger.info("Housing Name:"+res.getResidenceName());
@@ -119,7 +119,7 @@ public class Main {
             		case 3:
             			int numberr=1;
             			logger.info("Please select a housing first!");	
-            			for(residence res:ResidentsDB.getResidences()) {
+            			for(Residence res:ResidentsDB.getResidences()) {
             				if (res.getOwnerName().equals(username)){
             					logger.info(numberr+".\n");
                 				logger.info("Housing Name:"+res.getResidenceName());
@@ -127,14 +127,14 @@ public class Main {
             				}
             			}
             			numberr=scanner.nextInt();
-            			 residence myres=ResidentsDB.getResidences().get(numberr-1);
+            			 Residence myres=ResidentsDB.getResidences().get(numberr-1);
             			logger.info("residence Name:"+myres.getResidenceName());
             			logger.info("# of tenants"+myres.getNumOfTens());
             			for(int i=0;i<myres.getNumOfFloors();i++) {
             				for(int j=0;j<myres.getFloors().get(i).getNumOfApartements();j++) {
             					logger.info("Apartment ID:"+myres.getFloors().get(i).getApartments().get(j).getAppartmentId());
             					int numberTenants=1;
-            					for(tenants myten:myres.getFloors().get(i).getApartments().get(j).getTenantslist()) {
+            					for(Tenants myten:myres.getFloors().get(i).getApartments().get(j).getTenantslist()) {
             						logger.info(numberTenants+".\n");
             						logger.info("Name:"+myten.getName());
             						logger.info("Age:"+myten.getAge());
@@ -144,7 +144,7 @@ public class Main {
             				}
             			}
             			break;
-            		case 4: running_logged=false;
+            		case 4: runningLogged=false;
         				break;
             		default: logger.info("You entered wrong command!");
         				break;
@@ -153,10 +153,10 @@ public class Main {
             }
             else if(loggedIn.equals("TENANT")) {
             	logger.info("TENANT LOGIN");
-            	tenants tenantsUser=TenantsDB.getTenant(username,password);
-            	running_logged=true;
-            	running_logging=false;
-            	while(running_logged) {
+            	Tenants tenantsUser=TenantsDB.getTenant(username,password);
+            	runningLogged=true;
+            	runningLogging=false;
+            	while(runningLogged) {
             		showTenantDashboard( tenantsUser);
 //           x 		logger.info("1. View available housing");
 //           x         logger.info("2. View pictures and details of housing");
@@ -165,7 +165,7 @@ public class Main {
             		switch(choice) {
             		case 1:
             			int choice2=1;
-            			for(residenceAnnounced resAn: Announcedresidences.getAnnouncedResidences()) {
+            			for(ResidenceAnnounced resAn: Announcedresidences.getAnnouncedResidences()) {
             				logger.info(choice2+".\n");
             				logger.info("Housing Name:"+resAn.getResidenceName());
             				choice2++;
@@ -175,7 +175,7 @@ public class Main {
             			logger.info("Please select a housing first!");
             			
             			
-            			for(residenceAnnounced resAn: Announcedresidences.getAnnouncedResidences()) {
+            			for(ResidenceAnnounced resAn: Announcedresidences.getAnnouncedResidences()) {
             				logger.info(choice3+".\n");
             				logger.info("Housing Name:"+resAn.getResidenceName());
             				choice3++;
@@ -189,27 +189,27 @@ public class Main {
             			break;
             		case 3:
             			logger.info("Please select a housing first!");
-            			for(residenceAnnounced ressAnnn: Announcedresidences.getAnnouncedResidences()) {
+            			for(ResidenceAnnounced ressAnnn: Announcedresidences.getAnnouncedResidences()) {
             				logger.info(choice3+".\n");
             				logger.info("Housing Name:"+ressAnnn.getResidenceName());
             				choice3++;
             			}
             			choice3=scanner.nextInt();
-            			residenceAnnounced ressAnnn=Announcedresidences.getAnnouncedResidences().get(choice3-1);
-            				int NumOfF=ressAnnn.getRecidence().getNumOfFloors();
-            				int Floor;
-            				int Apartment;
-            				logger.info("There are "+NumOfF+" Floors.\n Please Pick a Floor");
-            				Floor=scanner.nextInt();
-            				floors pickedFloor=ressAnnn.getRecidence().getFloors().get(Floor-1);
+            			ResidenceAnnounced ressAnnn=Announcedresidences.getAnnouncedResidences().get(choice3-1);
+            				int numOfF=ressAnnn.getRecidence().getNumOfFloors();
+            				int floor;
+            				int apartment;
+            				logger.info("There are "+numOfF+" Floors.\n Please Pick a Floor");
+            				floor=scanner.nextInt();
+            				Floors pickedFloor=ressAnnn.getRecidence().getFloors().get(floor-1);
             				
             				logger.info("There are "+pickedFloor.getNumOfApartements()+" Apartements in this floor.\n Please Pick an apartment.");
-            				Apartment=scanner.nextInt();
-            				appartment pickedApartment=pickedFloor.getApartments().get(Apartment-1);
+            				apartment=scanner.nextInt();
+            				Apartment pickedApartment=pickedFloor.getApartments().get(apartment-1);
             				pickedApartment.setNumOfTens(pickedApartment.getNumOfTens()+1);
             			
             			break;
-            		case 4: running_logged=false;
+            		case 4: runningLogged=false;
             			break;
             		default: logger.info("You entered wrong command!");
             			break;
@@ -226,7 +226,7 @@ public class Main {
         scanner.close();
     }
 
-    private static void showTenantDashboard(tenants tenant) {
+    private static void showTenantDashboard(Tenants tenant) {
         // Implement tenant dashboard functionality here based on product functions and user characteristics
         // For example:
     	
@@ -239,7 +239,7 @@ public class Main {
         // Example: 4. View personal data, 5. View residence owner details, etc.
     }
 
-    private static void showHousingOwnerDashboard(owner housingOwner) {
+    private static void showHousingOwnerDashboard(Owner housingOwner) {
         // Implement housing owner dashboard functionality here based on product functions and user characteristics
         // For example:
         logger.info("Welcome, " + housingOwner.getUsername() + "!");

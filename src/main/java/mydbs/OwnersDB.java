@@ -4,11 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
 
-import mysakan.owner;
+import mysakan.Owner;
 
 public class OwnersDB {
     private static final Logger LOGGER = Logger.getLogger(OwnersDB.class.getName());
-    private static final List<owner> ownersList = new ArrayList();
+    private static final List<Owner> ownersList = new ArrayList();
 
     private OwnersDB() {
         throw new IllegalStateException("Utility class");
@@ -16,10 +16,10 @@ public class OwnersDB {
 
     static {
         // Create some sample owners and add them to the list
-    	owner owner1 = new owner();
+    	Owner owner1 = new Owner();
     	owner1.setUsername("John");
     	owner1.setPassword("1234");
-    	owner owner2 = new owner();
+    	Owner owner2 = new Owner();
     	owner2.setUsername("Alice");
     	owner2.setPassword("0000");
 
@@ -27,15 +27,15 @@ public class OwnersDB {
         ownersList.add(owner2);
     }
 
-    public static List<owner> getOwners() {
+    public static List<Owner> getOwners() {
         return ownersList;
     }
 
-    public static void addOwner(owner owner) {
+    public static void addOwner(Owner owner) {
         ownersList.add(owner);
     }
     public static boolean containsKey(String username,String password) {
-		for(owner ownerr:ownersList)
+		for(Owner ownerr:ownersList)
 		{
 			
 			if(ownerr.getUsername().equals(username)&&ownerr.getPassword().equals(password)) 
@@ -47,8 +47,8 @@ public class OwnersDB {
 		return false;
 	}
 
-	public static owner getOwner(String username, String password) {
-		for(owner ownerr:ownersList)
+	public static Owner getOwner(String username, String password) {
+		for(Owner ownerr:ownersList)
 		{
 			
 			if(ownerr.getUsername().equals(username)&&ownerr.getPassword().equals(password)) 

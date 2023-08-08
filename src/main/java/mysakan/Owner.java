@@ -1,11 +1,12 @@
 package mysakan;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
-public class owner {
-    private ArrayList<residence> residenceList;
-    private ArrayList<residenceAnnounced> announcedResidences;
+public class Owner {
+    private ArrayList<Residence> residenceList;
+    private ArrayList<ResidenceAnnounced> announcedResidences;
     private boolean loggedInFlag;
     private int chosenResidence;
     private int numOfTenants;
@@ -14,30 +15,30 @@ public class owner {
     private String password;
     private Scanner input;
 
-    public owner(ArrayList<residence> residenceList) {
-        this.residenceList=residenceList;
+    public Owner(List<Residence> residenceList) {
+        this.residenceList=(ArrayList<Residence>) residenceList;
         loggedInFlag = false;
         input = new Scanner(System.in);
         numOfFloors=0;
         numOfTenants=0;
         chosenResidence=0;
     }
-    public owner() {
-    	this.residenceList=new ArrayList();
+    public Owner() {
+    	this.residenceList=new ArrayList<>();
     	loggedInFlag = false;
         input = new Scanner(System.in);
         numOfFloors=0;
         numOfTenants=0;
         chosenResidence=0;
     }
-	public ArrayList<residence> getResidenceList() {
+	public ArrayList<Residence> getResidenceList() {
 		return residenceList;
 	}
-    public void addResidence(residence Recidence) {
-    	this.residenceList.add(Recidence);
+    public void addResidence(Residence myResidence) {
+    	this.residenceList.add(myResidence);
     }
-	public void setResidenceList(ArrayList<residence> residenceList) {
-		this.residenceList = residenceList;
+	public void setResidenceList(List<Residence> residenceList) {
+		this.residenceList = (ArrayList<Residence>) residenceList;
 	}
 	public boolean getLoggedInFlag() {
 		return loggedInFlag;
@@ -72,7 +73,6 @@ public class owner {
 	public void accessControlPanel() {
         if (residenceList.isEmpty()) {
             System.out.println("No housing units available.");
-            return;
         }
     }
 
@@ -86,7 +86,7 @@ public class owner {
             return;
         }
 
-        residence selectedResidence = residenceList.get(chosenResidence - 1);
+        Residence selectedResidence = residenceList.get(chosenResidence - 1);
         numOfTenants = selectedResidence.getNumOfTens();
         numOfFloors = selectedResidence.getNumOfFloors();
     }
@@ -122,8 +122,8 @@ public class owner {
 	public boolean apartmentsAppearFromFloor() {
 		return false;
 	}
-	public residence selectHousingUnit(Integer housingUnitId) {
-		for(residence housingunit:residenceList) {
+	public Residence selectHousingUnit(Integer housingUnitId) {
+		for(Residence housingunit:residenceList) {
 			if(housingunit.getResidenceID()==housingUnitId) {
 				return housingunit;
 			}
@@ -145,6 +145,12 @@ public class owner {
 	}
 	public void setPassword(String password) {
 		this.password = password;
+	}
+	public ArrayList<ResidenceAnnounced> getAnnouncedResidences() {
+		return announcedResidences;
+	}
+	public void setAnnouncedResidences(ArrayList<ResidenceAnnounced> announcedResidences) {
+		this.announcedResidences = announcedResidences;
 	}
 	
 

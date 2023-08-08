@@ -1,10 +1,10 @@
 package mysakan;
 
-public class student extends tenants {
+public class Student extends Tenants {
     private String universityMajor;
 
     // Constructors
-    public student(String name, String email, String phoneNumber, boolean loggedIn, int age, String universityMajor) {
+    public Student(String name, String email, String phoneNumber, boolean loggedIn, int age, String universityMajor) {
         super(name, email, phoneNumber, loggedIn, age); // Call the constructor of the superclass
         this.universityMajor = universityMajor;
     }

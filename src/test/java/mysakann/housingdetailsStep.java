@@ -2,7 +2,7 @@ package mysakann;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.*;
 import mydbs.Advertisements;
-import mysakan.tenants;
+import mysakan.Tenants;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -19,7 +19,7 @@ public class housingdetailsStep {
     private String city;
     private String street;
     private List<String> services;
-    private tenants Tenant = new tenants();
+    private Tenants Tenant = new Tenants();
 
     public housingdetailsStep() {
         // Default constructor

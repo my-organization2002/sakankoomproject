@@ -7,7 +7,7 @@ import io.cucumber.java.en.*;
 import mydbs.Announcedresidences;
 import mydbs.ResidentsDB;
 import mysakan.Administrator;
-import mysakan.residenceAnnounced;
+import mysakan.ResidenceAnnounced;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,13 +15,13 @@ import java.util.Map;
 
 public class AdminAdvertisingStep {
     private Administrator admin;
-    private residenceAnnounced newHousingUnit;
+    private ResidenceAnnounced newHousingUnit;
     private boolean housingUnitAdvertised;
 
     public AdminAdvertisingStep() {
         // Create instances of the required dependencies here
         admin = new Administrator();
-        newHousingUnit = new residenceAnnounced();
+        newHousingUnit = new ResidenceAnnounced();
         housingUnitAdvertised = false;
     }
 

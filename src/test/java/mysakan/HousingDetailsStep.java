@@ -11,16 +11,16 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-public class housingdetailsStep {
+public class HousingDetailsStep {
     private int selectedHousingUnitId;
     private List<Map<String, String>> picturesData;
     private int price;
     private String city;
     private String street;
     private List<String> services;
-    private tenants Tenant = new tenants();
+    private Tenants Tenant = new Tenants();
 
-    public housingdetailsStep() {
+    public HousingDetailsStep() {
         // Default constructor
     }
 

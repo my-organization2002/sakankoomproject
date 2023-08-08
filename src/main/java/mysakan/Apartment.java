@@ -1,14 +1,15 @@
 package mysakan;
 
 import java.util.ArrayList;
+import java.util.List;
 
-public class appartment {
+public class Apartment {
 	private int appartmentId;
 	private int numOfBedrooms;
 	private int numOfBathrooms;
 	private int numOfTens;
 	private boolean hasBalcony;
-	ArrayList <tenants> tenantslist=new ArrayList();
+	ArrayList <Tenants> tenantsList=new ArrayList<>();
 	public int getAppartmentId() {
 		return appartmentId;
 	}
@@ -34,15 +35,15 @@ public class appartment {
 		this.hasBalcony = hasBalcony;
 	}
 	
-	public appartment(int appartmentId, int numOfBedrooms, int numOfBathrooms, int numOfTens, boolean hasBalcony,
-			ArrayList<tenants> tenantslist) {
+	public Apartment(int appartmentId, int numOfBedrooms, int numOfBathrooms, int numOfTens, boolean hasBalcony,
+			List<Tenants> tenantslist) {
 		super();
 		this.appartmentId = appartmentId;
 		this.numOfBedrooms = numOfBedrooms;
 		this.numOfBathrooms = numOfBathrooms;
 		this.numOfTens = numOfTens;
 		this.hasBalcony = hasBalcony;
-		this.tenantslist = tenantslist;
+		this.tenantsList = (ArrayList<Tenants>) tenantslist;
 	}
 	
 	public int getNumOfTens() {
@@ -52,14 +53,14 @@ public class appartment {
 		this.numOfTens = numOfTens;
 	}
 	
-	public ArrayList<tenants> getTenantslist() {
-		return tenantslist;
+	public List<Tenants> getTenantslist() {
+		return tenantsList;
 	}
-	public void setTenantslist(ArrayList<tenants> tenantslist) {
-		this.tenantslist = tenantslist;
+	public void setTenantslist(List<Tenants> tenantslist) {
+		this.tenantsList = (ArrayList<Tenants>) tenantslist;
 	}
 	public boolean hasTenant(String name) {
-		for(tenants tenant:tenantslist) {
+		for(Tenants tenant:tenantsList) {
 			if(tenant.getName().equalsIgnoreCase(name)) {
 				return true;
 			}

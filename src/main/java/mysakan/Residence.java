@@ -1,28 +1,27 @@
 package mysakan;
 import java.util.ArrayList;
 import java.util.List;
-
-public class residence {
-	ArrayList <floors> floorlist=new ArrayList();
+public class Residence {
+	ArrayList <Floors> floorlist=new ArrayList<>();
 	private int numOfTens;
 	private int numOfFloors;
 	private int residenceID;
-	private boolean StudentHousing;
+	private boolean studentHousing;
 	private String residenceName;
 	private String ownerName;
 	
 	
 
-	public residence(ArrayList<floors> floorlist, int numOfTens, int numOfFloors, int residenceID, boolean StudentHouse,String residenceName) {
+	public Residence(List<Floors> floorlist, int numOfTens, int numOfFloors, int residenceID, boolean StudentHouse,String residenceName) {
 		super();
-		this.floorlist = floorlist;
+		this.floorlist = (ArrayList<Floors>) floorlist;
 		this.numOfTens = numOfTens;
 		this.numOfFloors = numOfFloors;
 		this.residenceID = residenceID;
-		this.StudentHousing=StudentHouse;
+		this.studentHousing=StudentHouse;
 		this.residenceName=residenceName;
 	}
-	public residence() {
+	public Residence() {
 		super();
 	}
 	public int getNumOfTens() {
@@ -44,21 +43,21 @@ public class residence {
 	public void setResidenceID(int residenceID) {
 		this.residenceID = residenceID;
 	}
-	public floors selectFloor(Integer FloorId) {
-		for(floors floor:floorlist) {
-			if(floor.getFloorID()==FloorId) {
+	public Floors selectFloor(Integer floorId) {
+		for(Floors floor:floorlist) {
+			if(floor.getFloorID()==floorId) {
 				return floor;
 			}
 		}
 		return null;
 	}
 	public boolean isStudentHousing() {
-		return this.StudentHousing;
+		return this.studentHousing;
 	}
 	public void setStudentHousing(boolean studentHousing) {
-		StudentHousing = studentHousing;
+		this.studentHousing = studentHousing;
 	}
-	public ArrayList<floors> getFloors() {
+	public List<Floors> getFloors() {
 		return this.floorlist;
 	}
 	public String getResidenceName() {

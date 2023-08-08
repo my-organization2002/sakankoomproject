@@ -4,9 +4,9 @@ import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.*;
 import mydbs.Announcedresidences;
 import mydbs.ResidentsDB;
-import mysakan.residence;
-import mysakan.student;
-import mysakan.tenants;
+import mysakan.Residence;
+import mysakan.Student;
+import mysakan.Tenants;
 
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
@@ -16,14 +16,14 @@ import java.util.List;
 import java.util.Map;
 
 public class StudentHousingDetailsStep {
-    private residence selectedHousingUnit;
+    private Residence selectedHousingUnit;
     private int selectedHousingUnitId;
     private List<Map<String, String>> picturesData;
     private int price;
     private String city;
     private String street;
     private List<String> services;
-    private tenants Tenant = new tenants();
+    private Tenants Tenant = new Tenants();
 
     public StudentHousingDetailsStep() {
         // Default constructor
@@ -51,12 +51,12 @@ public class StudentHousingDetailsStep {
         List<Map<String, String>> peopleData = dataTable.asMaps(String.class, String.class);
         // For example, you can store the people data in a list of objects or in any other data structure.
         // For simplicity, let's assume you have a class Student with attributes 'name', 'age', and 'universityMajor':
-        List<student> people = new ArrayList();
+        List<Student> people = new ArrayList();
         for (Map<String, String> personData : peopleData) {
             String name = personData.get("Name");
             int age = Integer.parseInt(personData.get("Age"));
             String universityMajor = personData.get("University Major");
-            student person = new student(name, "", "", false, age, universityMajor);
+            Student person = new Student(name, "", "", false, age, universityMajor);
             people.add(person);
         }
         // Now you have the list of people living in the housing in the 'people' variable.
@@ -68,7 +68,7 @@ public class StudentHousingDetailsStep {
         assertNotNull(people);
         assertTrue(people.size() > 0);
 
-        for (student person : people) {
+        for (Student person : people) {
             assertNotNull(person.getName());
             assertNotNull(person.getUniversityMajor());
             assertTrue(person.getAge() >= 0); // Assuming age cannot be negative
