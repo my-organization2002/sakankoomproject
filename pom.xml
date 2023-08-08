@@ -8,14 +8,13 @@
     <maven.compiler.target>1.8</maven.compiler.target>
   <sonar.organization>my-organization2002</sonar.organization>
   <sonar.host.url>https://sonarcloud.io</sonar.host.url>
+
     </properties>
   <build>
-        <plugins>
-            <!-- Add the JaCoCo plugin configuration here -->
-            <plugin>
+        <plugins><plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
-                <version>0.8.7</version> <!-- Use the latest version -->
+                <version>0.8.8</version> <!-- Use the latest version -->
                 <executions>
                     <execution>
                         <id>prepare-agent</id>
@@ -31,6 +30,12 @@
                         </goals>
                     </execution>
                 </executions>
+            </plugin>
+            <!-- Add SonarCloud plugin -->
+            <plugin>
+                <groupId>org.sonarsource.scanner.maven</groupId>
+                <artifactId>sonar-maven-plugin</artifactId>
+                <version>3.9.1.2184</version> <!-- Use the latest version -->
             </plugin>
         </plugins>
     </build>
