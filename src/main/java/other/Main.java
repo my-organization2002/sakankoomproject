@@ -1,12 +1,19 @@
 package other;
-import mysakan.*;
-
 import java.io.Console;
 import java.util.Scanner;
 import java.util.logging.Logger;
 
 import io.cucumber.plugin.event.Node.Example;
 import mydbs.*;
+import mysakan.Administrator;
+import mysakan.MyApp;
+import mysakan.User;
+import mysakan.appartment;
+import mysakan.floors;
+import mysakan.owner;
+import mysakan.residence;
+import mysakan.residenceAnnounced;
+import mysakan.tenants;
 
 public class Main {
     private static final Logger logger = Logger.getLogger(Main.class.getName());
@@ -214,18 +221,6 @@ public class Main {
             else {
             	logger.info("NOT FOUND!!");
             }
-//            if (loggedInUser != null) {
-//                // User successfully logged in, show the corresponding dashboard
-//                switch (loggedInUser.getUserType()) {
-//                    case TENANT:
-//                        showTenantDashboard((Tenant) loggedInUser);
-//                        break;
-//                    case HOUSING_OWNER:
-//                        showHousingOwnerDashboard((HousingOwner) loggedInUser);
-//                        break;
-//                    case SYSTEM_ADMINISTRATOR:
-//                        showSystemAdminDashboard((SystemAdministrator) loggedInUser);
-//                        break;
 //                }
 //            }
         }

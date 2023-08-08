@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.logging.Logger;
 
 import mysakan.Administrator;
-import mysakan.Reservation;
 
 public class AdministratorsDB {
     private static final Logger LOGGER = Logger.getLogger(AdministratorsDB.class.getName());
