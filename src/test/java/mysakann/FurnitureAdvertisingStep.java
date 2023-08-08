@@ -21,11 +21,12 @@ public class FurnitureAdvertisingStep {
 		//this.Tenant = tenant;
 	//}
     
-
-	public FurnitureAdvertisingStep(List<Map<String, String>> furnitureData) {
-		super();
-		this.furnitureData = furnitureData;
-	}
+    
+//
+//	public FurnitureAdvertisingStep(List<Map<String, String>> furnitureData) {
+//		super();
+//		this.furnitureData = furnitureData;
+//	}
 
 
 	@Given("The Tenant is Logged in")
