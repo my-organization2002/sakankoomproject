@@ -30,7 +30,6 @@ public class AdministratorsDB {
     }
 
     public static boolean containsKey(String username, String password) {
-        // TODO Auto-generated method stub
         for (Administrator admin : administratorsList) {
             if (admin.getUsername().equals(username) && admin.getPassword().equals(password)) {
                 return true;
@@ -40,8 +39,7 @@ public class AdministratorsDB {
     }
 
     public static Administrator getAdmin(String username, String password) {
-        // TODO Auto-generated method stub
-        for (Administrator admin : administratorsList) {
+    	for (Administrator admin : administratorsList) {
             if (admin.getUsername().equals(username) && admin.getPassword().equals(password)) {
                 return admin;
             }

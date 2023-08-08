@@ -29,7 +29,6 @@ public class floors {
 	}
 	
 	public appartment selectApartment(Integer apartmentId) {
-		// TODO Auto-generated method stub
 		for(appartment appartmentunit:appartmentlist) {
 			if(appartmentunit.getAppartmentId()==apartmentId) {
 				return appartmentunit;

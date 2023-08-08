@@ -30,13 +30,6 @@ public class owner {
         numOfTenants=0;
         chosenResidence=0;
     }
-    
-    
-
-//    public owner(String username, String password) {
-//		this.username = username;
-//		this.password = password;
-//	}
 	public ArrayList<residence> getResidenceList() {
 		return residenceList;
 	}
@@ -127,11 +120,9 @@ public class owner {
         return false;
     }
 	public boolean apartmentsAppearFromFloor() {
-		// TODO Auto-generated method stub
 		return false;
 	}
 	public residence selectHousingUnit(Integer housingUnitId) {
-		// TODO Auto-generated method stub
 		for(residence housingunit:residenceList) {
 			if(housingunit.getResidenceID()==housingUnitId) {
 				return housingunit;
@@ -140,7 +131,6 @@ public class owner {
 		return null;
 	}
 	public void clearResidences() {
-		// TODO Auto-generated method stub
 		this.residenceList.clear();
 		
 	}

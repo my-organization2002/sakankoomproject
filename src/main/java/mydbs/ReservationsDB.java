@@ -16,7 +16,6 @@ public class ReservationsDB {
 	   private static List<Reservation> ReservationsList=new ArrayList<Reservation>();
 
 	public static void put(int reservationId, Map<String, String> reservationDetails) {
-		// TODO Auto-generated method stub
 			Reservation x=new Reservation(reservationId,reservationDetails);
 			ReservationsList.add(x);
 	}
@@ -29,7 +28,6 @@ public class ReservationsDB {
 	}
 
 	public static Map<String, String> get(int selectedReservationId) {
-		// TODO Auto-generated method stub
 		for(Reservation res:ReservationsList)
 		{
 			
@@ -42,7 +40,6 @@ public class ReservationsDB {
 	}
 
 	public static boolean containsKey(Integer reservationId) {
-		// TODO Auto-generated method stub
 		for(Reservation res:ReservationsList)
 		{
 			

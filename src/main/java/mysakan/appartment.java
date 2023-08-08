@@ -59,7 +59,6 @@ public class appartment {
 		this.tenantslist = tenantslist;
 	}
 	public boolean hasTenant(String name) {
-		// TODO Auto-generated method stub
 		for(tenants tenant:tenantslist) {
 			if(tenant.getName().equalsIgnoreCase(name)) {
 				return true;

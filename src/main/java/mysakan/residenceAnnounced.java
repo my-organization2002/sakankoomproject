@@ -50,7 +50,6 @@ public class residenceAnnounced {
 		this.residenceName = residenceName;
 	}
 	public void addPhoto(String photoName, String photoURL) {
-		// TODO Auto-generated method stub
 		this.Photos.add(new Photos(photoName,photoURL));
 	}
 	public String getAddress() {
@@ -71,12 +70,10 @@ public class residenceAnnounced {
 
 	}
 	public void setMonthlyRent(Integer rentAmount) {
-		// TODO Auto-generated method stub
 		this.monthlyRent=rentAmount;
 		
 	}
 	public void setRentInclusive(boolean b) {
-		// TODO Auto-generated method stub
 		this.rentInclusive=b;
 		
 	}
@@ -114,13 +111,11 @@ public class residenceAnnounced {
 		return rentInclusive;
 	}
 	public String getErrorMessage() {
-		// TODO Auto-generated method stub
 		return "The ID of the residence you're trying to announce does not exist";
 		
 	}
 
 	public int getRecidenceID() {
-		// TODO Auto-generated method stub
 		return this.recidenceID;
 	}
 

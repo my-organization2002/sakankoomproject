@@ -6,12 +6,10 @@ public class Administrator  {
 public Administrator(String username, String password) {
 		this.username=username;
 		this.password=password;
-		// TODO Auto-generated constructor stub
 	}
 
 
 public Administrator() {
-	// TODO Auto-generated constructor stub
 }
 
 

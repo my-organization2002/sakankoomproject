@@ -31,7 +31,6 @@ public class TenantsDB {
         tenantsList.add(tenant);
     }
     public static boolean containsKey(String username,String password) {
-		// TODO Auto-generated method stub
 		for(tenants tenant:tenantsList)
 		{
 			
@@ -45,7 +44,6 @@ public class TenantsDB {
 	}
 
 	public static tenants getTenant(String username, String password) {
-		// TODO Auto-generated method stub
 		for(tenants tenant:tenantsList)
 		{
 			
