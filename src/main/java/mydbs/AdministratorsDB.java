@@ -2,11 +2,10 @@ package mydbs;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Logger;
-
 import mysakan.Administrator;
+
+
 public class AdministratorsDB {
-    private static final Logger LOGGER = Logger.getLogger(AdministratorsDB.class.getName());
     private static final List<Administrator> administratorsList = new ArrayList();
 
     private AdministratorsDB() {
