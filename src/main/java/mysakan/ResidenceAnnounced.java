@@ -66,8 +66,7 @@ public class ResidenceAnnounced {
 	}
 	public void setAvailableServices(List<String> availableServices) {
 	    // Create a new ArrayList and add all elements from the original list
-		this.availableServices =  (ArrayList<String>) availableServices;
-
+	    this.availableServices = new ArrayList<>(availableServices);
 	}
 	public void setMonthlyRent(Integer rentAmount) {
 		this.monthlyRent=rentAmount;

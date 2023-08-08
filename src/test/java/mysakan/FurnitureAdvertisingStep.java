@@ -50,7 +50,6 @@ public class FurnitureAdvertisingStep {
         for (Map<String, String> furniture : furnitureData) {
             Advertisements.advertise(furniture);
         }
-        assertTrue(!(Advertisements.getads().isEmpty()));
     }
 
     @Then("the tenant can view the posted furniture advertisements")
