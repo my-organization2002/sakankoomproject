@@ -37,5 +37,8 @@ public class floors {
 		}
 		return null;
 	}
+	public ArrayList<appartment> getApartments() {
+		return this.appartmentlist;
+	}
 
 }

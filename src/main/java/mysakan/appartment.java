@@ -51,6 +51,13 @@ public class appartment {
 	public void setNumOfTens(int numOfTens) {
 		this.numOfTens = numOfTens;
 	}
+	
+	public ArrayList<tenants> getTenantslist() {
+		return tenantslist;
+	}
+	public void setTenantslist(ArrayList<tenants> tenantslist) {
+		this.tenantslist = tenantslist;
+	}
 	public boolean hasTenant(String name) {
 		// TODO Auto-generated method stub
 		for(tenants tenant:tenantslist) {
