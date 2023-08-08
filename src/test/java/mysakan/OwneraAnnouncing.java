@@ -11,6 +11,9 @@ import java.util.Map;
 import io.cucumber.java.en.*;
 import mydbs.Announcedresidences;
 import mydbs.ResidentsDB;
+import mysakanclasses.Owner;
+import mysakanclasses.Residence;
+import mysakanclasses.ResidenceAnnounced;
 
 public class OwneraAnnouncing {
     Owner housingowner;

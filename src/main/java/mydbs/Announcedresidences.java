@@ -3,11 +3,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.*;
 
-import mysakan.Apartment;
-import mysakan.Floors;
-import mysakan.Residence;
-import mysakan.ResidenceAnnounced;
-import mysakan.Tenants;
+import mysakanclasses.Apartment;
+import mysakanclasses.Floors;
+import mysakanclasses.Residence;
+import mysakanclasses.ResidenceAnnounced;
+import mysakanclasses.Tenants;
 public class Announcedresidences {
 	   private static final Logger LOGGER = Logger.getLogger(Announcedresidences.class.getName());
 	   private static final String COMPLETE = "complete";  // Compliant

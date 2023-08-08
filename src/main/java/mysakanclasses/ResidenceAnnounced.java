@@ -1,4 +1,4 @@
-package mysakan;
+package mysakanclasses;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,7 +22,7 @@ public class ResidenceAnnounced {
 
 	public ResidenceAnnounced(Residence recidence, String residenceName, String address, String description,
 			int monthlyRent, boolean rentInclusive, String contactName, String email, String phoneNumber,
-			boolean announced, List<mysakan.Photos> photos, List<String> availableServices, int recidenceID) {
+			boolean announced, List<mysakanclasses.Photos> photos, List<String> availableServices, int recidenceID) {
 		super();
 		myRecidence = recidence;
 		this.residenceName = residenceName;

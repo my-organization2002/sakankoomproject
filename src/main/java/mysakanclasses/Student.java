@@ -1,4 +1,4 @@
-package mysakan;
+package mysakanclasses;
 
 public class Student extends Tenants {
     private String universityMajor;

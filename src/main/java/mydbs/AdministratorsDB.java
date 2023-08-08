@@ -2,7 +2,8 @@ package mydbs;
 
 import java.util.ArrayList;
 import java.util.List;
-import mysakan.Administrator;
+
+import mysakanclasses.Administrator;
 
 
 public class AdministratorsDB {

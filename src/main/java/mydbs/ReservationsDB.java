@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.logging.Logger;
 
-import mysakan.Reservation;
+import mysakanclasses.Reservation;
 
 public class ReservationsDB {
 	 private static final Logger LOGGER = Logger.getLogger(ReservationsDB.class.getName());

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
 
-import mysakan.Tenants;
+import mysakanclasses.Tenants;
 
 public class TenantsDB {
     private static final Logger LOGGER = Logger.getLogger(TenantsDB.class.getName());

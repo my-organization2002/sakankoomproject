@@ -1,4 +1,4 @@
-package mysakan;
+package mysakanclasses;
 public class Tenants  {
 	private String name;
 	private String email;

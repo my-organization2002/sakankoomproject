@@ -4,6 +4,9 @@ import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.*;
 import mydbs.Announcedresidences;
 import mydbs.ResidentsDB;
+import mysakanclasses.Residence;
+import mysakanclasses.Student;
+import mysakanclasses.Tenants;
 
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;

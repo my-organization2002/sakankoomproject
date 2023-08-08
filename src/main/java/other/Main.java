@@ -3,15 +3,15 @@ import java.util.Scanner;
 import java.util.logging.Logger;
 
 import mydbs.*;
-import mysakan.Administrator;
-import mysakan.MyApp;
-import mysakan.User;
-import mysakan.Apartment;
-import mysakan.Floors;
-import mysakan.Owner;
-import mysakan.Residence;
-import mysakan.ResidenceAnnounced;
-import mysakan.Tenants;
+import mysakanclasses.Administrator;
+import mysakanclasses.Apartment;
+import mysakanclasses.Floors;
+import mysakanclasses.MyApp;
+import mysakanclasses.Owner;
+import mysakanclasses.Residence;
+import mysakanclasses.ResidenceAnnounced;
+import mysakanclasses.Tenants;
+import mysakanclasses.User;
 
 public class Main {
     private static final Logger logger = Logger.getLogger(Main.class.getName());

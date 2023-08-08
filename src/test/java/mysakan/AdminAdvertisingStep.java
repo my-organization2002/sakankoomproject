@@ -6,6 +6,8 @@ import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.*;
 import mydbs.Announcedresidences;
 import mydbs.ResidentsDB;
+import mysakanclasses.Administrator;
+import mysakanclasses.ResidenceAnnounced;
 
 import java.util.ArrayList;
 import java.util.List;

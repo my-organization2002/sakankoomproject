@@ -1,4 +1,4 @@
-package mysakan;
+package mysakanclasses;
 
 public class Administrator  {
 	private String username;
