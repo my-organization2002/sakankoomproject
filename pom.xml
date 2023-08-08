@@ -9,8 +9,8 @@
   <sonar.organization>my-organization2002</sonar.organization>
   <sonar.host.url>https://sonarcloud.io</sonar.host.url>
   <sonar.projectKey>my-organization2002_sakankoomproject</sonar.projectKey>
-  <sonar.sources>src/main/java</sonar.sources>
-    <sonar.tests>src/test/java</sonar.tests>
+  <sonar.sources>mysakan/src/main/java</sonar.sources>
+    <sonar.tests>mysakan/src/test/java</sonar.tests>
 </properties>
   <build>
         <plugins>
