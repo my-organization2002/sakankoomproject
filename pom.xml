@@ -8,8 +8,33 @@
     <maven.compiler.target>1.8</maven.compiler.target>
   <sonar.organization>my-organization2002</sonar.organization>
   <sonar.host.url>https://sonarcloud.io</sonar.host.url>
+  <sonar.projectKey>my-organization2002_sakankoomproject</sonar.projectKey>
 </properties>
-  
+  <build>
+        <plugins>
+            <!-- Add the JaCoCo plugin configuration here -->
+            <plugin>
+                <groupId>org.jacoco</groupId>
+                <artifactId>jacoco-maven-plugin</artifactId>
+                <version>0.8.7</version> <!-- Use the latest version -->
+                <executions>
+                    <execution>
+                        <id>prepare-agent</id>
+                        <goals>
+                            <goal>prepare-agent</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>report</id>
+                        <phase>prepare-package</phase>
+                        <goals>
+                            <goal>report</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
 <dependencies>
   <dependency>
     <groupId>junit</groupId>

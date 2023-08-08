@@ -1,12 +1,13 @@
-package mysakan;
+package mysakanclasses;
 import java.util.ArrayList;
+import java.util.List;
 
-public class floors {
-	ArrayList <appartment> appartmentlist=new ArrayList();
+public class Floors {
+	ArrayList <Apartment> appartmentList=new ArrayList<>();
 	private int floorID;
 	private int numOfApartements;
 	
-	public floors() {
+	public Floors() {
 		super();
 	}
 	public int getFloorID() {
@@ -21,23 +22,23 @@ public class floors {
 	public void setNumOfApartements(int numOfApartements) {
 		this.numOfApartements = numOfApartements;
 	}
-	public floors(ArrayList<appartment> appartmentlist, int floorID, int numOfApartements) {
+	public Floors(List<Apartment> appartmentList, int floorID, int numOfApartements) {
 		super();
-		this.appartmentlist = appartmentlist;
+		this.appartmentList = (ArrayList<Apartment>) appartmentList;
 		this.floorID = floorID;
 		this.numOfApartements = numOfApartements;
 	}
 	
-	public appartment selectApartment(Integer apartmentId) {
-		for(appartment appartmentunit:appartmentlist) {
+	public Apartment selectApartment(Integer apartmentId) {
+		for(Apartment appartmentunit:appartmentList) {
 			if(appartmentunit.getAppartmentId()==apartmentId) {
 				return appartmentunit;
 			}
 		}
 		return null;
 	}
-	public ArrayList<appartment> getApartments() {
-		return this.appartmentlist;
+	public List<Apartment> getApartments() {
+		return this.appartmentList;
 	}
 
 }

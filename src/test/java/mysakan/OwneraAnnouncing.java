@@ -11,30 +11,33 @@ import java.util.Map;
 import io.cucumber.java.en.*;
 import mydbs.Announcedresidences;
 import mydbs.ResidentsDB;
+import mysakanclasses.Owner;
+import mysakanclasses.Residence;
+import mysakanclasses.ResidenceAnnounced;
 
-public class ownerannouncing {
-    owner housingowner;
-    residenceAnnounced announcedresidence;
-    residence myresidence;
+public class OwneraAnnouncing {
+    Owner housingowner;
+    ResidenceAnnounced announcedresidence;
+    Residence myresidence;
     boolean existingID;
 
-    public ownerannouncing() {
+    public OwneraAnnouncing() {
         // Create instances of the required dependencies here
-        housingowner = new owner();
-        announcedresidence = new residenceAnnounced();
-        myresidence = new residence();
+        housingowner = new Owner();
+        announcedresidence = new ResidenceAnnounced();
+        myresidence = new Residence();
         existingID = false;
     }
  // Setter methods for dependencies
-    public void setHousingowner(owner housingowner) {
+    public void setHousingowner(Owner housingowner) {
         this.housingowner = housingowner;
     }
 
-    public void setAnnouncedresidence(residenceAnnounced announcedresidence) {
+    public void setAnnouncedresidence(ResidenceAnnounced announcedresidence) {
         this.announcedresidence = announcedresidence;
     }
 
-    public void setMyresidence(residence myresidence) {
+    public void setMyresidence(Residence myresidence) {
         this.myresidence = myresidence;
     }
     // Step definition for the Background - The owner is Logged in
@@ -43,7 +46,7 @@ public class ownerannouncing {
         // Implement the logic for the owner being logged in
         // You may need to set some properties or flags in the 'owner' class
         // to indicate that the owner is logged in
-        housingowner = new owner();
+        housingowner = new Owner();
     }
 
     // Step definition for announcing a private residence with an existing ID
@@ -52,7 +55,7 @@ public class ownerannouncing {
         existingID = !(ResidentsDB.findAnnouncedResidence(residenceID).equals(null));
         this.myresidence = ResidentsDB.findAnnouncedResidence(residenceID);
         System.out.println("Selected Housing Unit: " + myresidence); // Debug statement
-        announcedresidence = new residenceAnnounced();
+        announcedresidence = new ResidenceAnnounced();
         announcedresidence.setRecidence(myresidence);
         System.out.println("Announced Residence: " + announcedresidence); // Debug statement
         announcedresidence.setRecidenceID(residenceID);
@@ -124,7 +127,7 @@ public class ownerannouncing {
         int residenceID = announcedresidence.getRecidenceID();
 
         // Find the announced residence with the given ID from the list
-        residenceAnnounced AnnRes = Announcedresidences.findAnnouncedResidence(residenceID);
+        ResidenceAnnounced AnnRes = Announcedresidences.findAnnouncedResidence(residenceID);
 
         // Check if the announced residence is found (i.e., it has been successfully announced)
         assertNotNull("Announced residence should not be null", AnnRes);
@@ -159,7 +162,7 @@ public class ownerannouncing {
         for (Map<String, String> housingUnit : housingUnitsData) {
             Integer residenceID = Integer.parseInt(housingUnit.get("Residence ID"));
             String residenceName = housingUnit.get("Residence Name");
-            residence housingunit = new residence(null,0,0,residenceID,false,residenceName);
+            Residence housingunit = new Residence(null,0,0,residenceID,false,residenceName);
             housingowner.addResidence(housingunit);
         }
     }

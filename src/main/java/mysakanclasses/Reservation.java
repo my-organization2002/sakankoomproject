@@ -1,4 +1,4 @@
-package mysakan;
+package mysakanclasses;
 
 import java.util.Map;
 

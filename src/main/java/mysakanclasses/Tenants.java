@@ -1,5 +1,5 @@
-package mysakan;
-public class tenants  {
+package mysakanclasses;
+public class Tenants  {
 	private String name;
 	private String email;
 	private String phoneNumber;
@@ -25,7 +25,7 @@ public class tenants  {
 	public void setPhoneNumber(String phoneNumber) {
 		this.phoneNumber = phoneNumber;
 	}
-	public tenants(String name, String email, String phoneNumber) {
+	public Tenants(String name, String email, String phoneNumber) {
 		super();
 		this.name = name;
 		this.email = email;
@@ -33,7 +33,7 @@ public class tenants  {
 		this.loggedIn=false;
 	}
 	
-	public tenants(String name, String email, String phoneNumber, boolean loggedIn, int age) {
+	public Tenants(String name, String email, String phoneNumber, boolean loggedIn, int age) {
 		super();
 		this.name = name;
 		this.email = email;
@@ -47,12 +47,12 @@ public class tenants  {
 	public void setAge(int age) {
 		this.age = age;
 	}
-	public tenants(String username,String password) {
+	public Tenants(String username,String password) {
 		this.username=username;
 		this.password=password;
 		this.loggedIn=false;
 	}
-	public tenants() {
+	public Tenants() {
 	}
 	public void setLoggedIn(boolean b) {
 		this.loggedIn=b;

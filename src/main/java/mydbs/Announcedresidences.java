@@ -3,33 +3,33 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.*;
 
-import mysakan.appartment;
-import mysakan.floors;
-import mysakan.residence;
-import mysakan.residenceAnnounced;
-import mysakan.tenants;
+import mysakanclasses.Apartment;
+import mysakanclasses.Floors;
+import mysakanclasses.Residence;
+import mysakanclasses.ResidenceAnnounced;
+import mysakanclasses.Tenants;
 public class Announcedresidences {
 	   private static final Logger LOGGER = Logger.getLogger(Announcedresidences.class.getName());
 	   private static final String COMPLETE = "complete";  // Compliant
 
-	   private static List<residenceAnnounced> announceResidencesList=new ArrayList<residenceAnnounced>();
+	   private static List<ResidenceAnnounced> announceResidencesList= new ArrayList<>();
 
 	   private Announcedresidences() {
 		    throw new IllegalStateException("Utility class");
 	   }
 	   static {
-		   tenants Ali= new tenants("Ali","Ali@email.com","0594234232");
-		    tenants Omar= new tenants("Omar","Omar@email.com","0594232231");
-		   ArrayList<tenants> Tenants=new ArrayList();
-		   Tenants.add(Omar);
-		   Tenants.add(Ali);
-		   appartment App=new appartment(1,4,2,2,false,Tenants);
-		   ArrayList<appartment>Appartments=new ArrayList();
-		   Appartments.add(App);
-		   floors Floor=new floors(Appartments,3,40);
-		   ArrayList<floors>Floors=new ArrayList();
-		   Floors.add(Floor);
-		   residence myres=new residence(Floors, 125, 9, 1,true,"");
+		   Tenants ali= new Tenants("Ali","Ali@email.com","0594234232");
+		    Tenants omar= new Tenants("Omar","Omar@email.com","0594232231");
+		   ArrayList<Tenants> tenantss=new ArrayList();
+		   tenantss.add(omar);
+		   tenantss.add(ali);
+		   Apartment App=new Apartment(1,4,2,2,false,tenantss);
+		   ArrayList<Apartment>appartments=new ArrayList();
+		   appartments.add(App);
+		   Floors Floor=new Floors(appartments,3,40);
+		   ArrayList<Floors>floorss=new ArrayList();
+		   floorss.add(Floor);
+		   Residence myres=new Residence(floorss, 125, 9, 1,true,"");
 		    String residenceName="Sakan Nablus";
 		    String address="Nablus-Rafidia";
 		    String description="This is a student sakan";
@@ -39,7 +39,7 @@ public class Announcedresidences {
 			 String email="Saleem@email.com";
 			 String phoneNumber="+1 (555) 123-4567";
 			 boolean announced=true;
-			 residenceAnnounced resAnn=new residenceAnnounced(myres,residenceName,
+			 ResidenceAnnounced resAnn=new ResidenceAnnounced(myres,residenceName,
 					 address,description,monthlyRent,rentInclusive
 					 ,contactName,email,phoneNumber,announced,null,null, 1);
 			 announceResidencesList.add(resAnn);
@@ -47,16 +47,16 @@ public class Announcedresidences {
 	   }
        
 
-	public static List<residenceAnnounced> getAnnouncedResidences() {
+	public static List<ResidenceAnnounced> getAnnouncedResidences() {
 		return announceResidencesList;
 	}
 
-	public static void addResident(residenceAnnounced myresidence) {
+	public static void addResident(ResidenceAnnounced myresidence) {
 		announceResidencesList.add(myresidence);
 	}
 	
-	public static residenceAnnounced findAnnouncedResidence(Integer id) {
-		for(residenceAnnounced resAnnounced:Announcedresidences.getAnnouncedResidences())
+	public static ResidenceAnnounced findAnnouncedResidence(Integer id) {
+		for(ResidenceAnnounced resAnnounced:Announcedresidences.getAnnouncedResidences())
 		{
 			
 			if(resAnnounced.getRecidenceID()==id) 
@@ -68,7 +68,7 @@ public class Announcedresidences {
 		
 	}
 
-	public static void displayAnnouncedResidence(residenceAnnounced resAnn) {
+	public static void displayAnnouncedResidence(ResidenceAnnounced resAnn) {
 		if(resAnn==null)
 		{
 			LOGGER.info("This residence does not exist");
@@ -83,14 +83,14 @@ public class Announcedresidences {
              + "\nEmail: " + resAnn.getEmail()
              + "\nPhone Number: " + resAnn.getPhoneNumber());
 	}
-	public static void displayAnnouncedResidences(List<residenceAnnounced> resAnnouncedList) {
-		for(residenceAnnounced resAnn:resAnnouncedList)
+	public static void displayAnnouncedResidences(List<ResidenceAnnounced> resAnnouncedList) {
+		for(ResidenceAnnounced resAnn:resAnnouncedList)
 		{
 			displayAnnouncedResidence(resAnn);	
 		}
 		
 	}
-	public static void suppressResidence(residenceAnnounced resAnn) {
+	public static void suppressResidence(ResidenceAnnounced resAnn) {
 		announceResidencesList.remove(resAnn);
 		
 	}
@@ -99,9 +99,9 @@ public class Announcedresidences {
 		LOGGER.warning("The Residence Does Not Exist/Is Not Announced");
 	}
 
-	public static List<residenceAnnounced> findAnnouncedResidenceByName(String name) {
-		List<residenceAnnounced> announcedResidenceByName=new ArrayList<residenceAnnounced>();
-		for(residenceAnnounced resAnn : announceResidencesList)
+	public static List<ResidenceAnnounced> findAnnouncedResidenceByName(String name) {
+	    List<ResidenceAnnounced> announcedResidenceByName = new ArrayList<>();
+		for(ResidenceAnnounced resAnn : announceResidencesList)
 		{
 			if(resAnn.getResidenceName().contains(name)) 
 			{

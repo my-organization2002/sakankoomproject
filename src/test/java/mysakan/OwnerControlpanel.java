@@ -2,16 +2,20 @@ package mysakan;
 
 import io.cucumber.java.en.*;
 import mydbs.ResidentsDB;
+import mysakanclasses.Apartment;
+import mysakanclasses.Floors;
+import mysakanclasses.Owner;
+import mysakanclasses.Residence;
 
 import static org.junit.Assert.assertTrue;
 
-public class ownercontrolpanel {
-    owner housingowner;
-    residence selectedHousingUnit;
-    floors selectedFloor;
-    appartment selectedApartment;
+public class OwnerControlpanel {
+    Owner housingowner;
+    Residence selectedHousingUnit;
+    Floors selectedFloor;
+    Apartment selectedApartment;
 
-    public ownercontrolpanel(owner housingowner) {
+    public OwnerControlpanel(Owner housingowner) {
         this.housingowner = housingowner;
     } // Dependency injection
     
@@ -80,8 +84,8 @@ public class ownercontrolpanel {
     public void theMeansOfCommunicationWithThemShouldBeDisplayed(String string, String string2) {
         // Write code here that turns the phrase above into concrete actions
        // throw new io.cucumber.java.PendingException();
-    	assertTrue(selectedApartment.tenantslist.get(1).getEmail().equalsIgnoreCase(string));
-    	assertTrue(selectedApartment.tenantslist.get(0).getEmail().equalsIgnoreCase(string2));
+    	assertTrue(selectedApartment.getTenantslist().get(1).getEmail().equalsIgnoreCase(string));
+    	assertTrue(selectedApartment.getTenantslist().get(0).getEmail().equalsIgnoreCase(string2));
 
     }
 

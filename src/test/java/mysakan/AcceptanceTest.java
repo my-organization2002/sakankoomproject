@@ -8,13 +8,12 @@ import io.cucumber.junit.CucumberOptions.SnippetType;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-    features = "use_cases/provided/tenants.feature",
+    features = "use_cases/provided", // Set the path to your feature files
     plugin = {"summary", "html:target/cucumber/wikipedia.html"},
-    monochrome = true,
     snippets = SnippetType.CAMELCASE,
     glue = "mysakan"
+//    tags = "@FurnitureAdvertising" // Add your desired tag here
 )
-
 public class AcceptanceTest {
 
 }

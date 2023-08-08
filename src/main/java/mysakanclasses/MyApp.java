@@ -1,4 +1,4 @@
-package mysakan;
+package mysakanclasses;
 import mydbs.*;
 public class MyApp {
 	private String username;

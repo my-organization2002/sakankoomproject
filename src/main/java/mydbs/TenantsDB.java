@@ -4,11 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
 
-import mysakan.tenants;
+import mysakanclasses.Tenants;
 
 public class TenantsDB {
     private static final Logger LOGGER = Logger.getLogger(TenantsDB.class.getName());
-    private static final List<tenants> tenantsList = new ArrayList();
+    private static final List<Tenants> tenantsList = new ArrayList();
 
     private TenantsDB() {
         throw new IllegalStateException("Utility class");
@@ -16,22 +16,22 @@ public class TenantsDB {
 
     static {
         // Create some sample tenants and add them to the list
-    	tenants tenant1 = new tenants("Omar", "1234");
-    	tenants tenant2 = new tenants("Ali", "4444");
+    	Tenants tenant1 = new Tenants("Omar", "1234");
+    	Tenants tenant2 = new Tenants("Ali", "4444");
 
         tenantsList.add(tenant1);
         tenantsList.add(tenant2);
     }
 
-    public static List<tenants> getTenants() {
+    public static List<Tenants> getTenants() {
         return tenantsList;
     }
 
-    public static void addTenant(tenants tenant) {
+    public static void addTenant(Tenants tenant) {
         tenantsList.add(tenant);
     }
     public static boolean containsKey(String username,String password) {
-		for(tenants tenant:tenantsList)
+		for(Tenants tenant:tenantsList)
 		{
 			
 			if(tenant.getUsername().equals(username)&&tenant.getPassword().equals(password)) 
@@ -43,8 +43,8 @@ public class TenantsDB {
 		return false;
 	}
 
-	public static tenants getTenant(String username, String password) {
-		for(tenants tenant:tenantsList)
+	public static Tenants getTenant(String username, String password) {
+		for(Tenants tenant:tenantsList)
 		{
 			
 			if(tenant.getUsername().equals(username)&&tenant.getPassword().equals(password)) 

@@ -1,4 +1,4 @@
-package mysakan;
+package mysakanclasses;
 
 public class User {
 	private String username;
