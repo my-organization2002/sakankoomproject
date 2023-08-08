@@ -8,6 +8,7 @@
     <maven.compiler.target>1.8</maven.compiler.target>
   <sonar.organization>my-organization2002</sonar.organization>
   <sonar.host.url>https://sonarcloud.io</sonar.host.url>
+  <sonar.token>9667a8ff4c9cb409ea866ac9eb1f28da7022dda1</sonar.token>
   <sonar.projectKey>my-organization2002_sakankoomproject</sonar.projectKey>
 </properties>
   
