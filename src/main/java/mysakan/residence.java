@@ -9,6 +9,7 @@ public class residence {
 	private int residenceID;
 	private boolean StudentHousing;
 	private String residenceName;
+	private String ownerName;
 	
 	
 
@@ -65,11 +66,20 @@ public class residence {
 	public void setStudentHousing(boolean studentHousing) {
 		StudentHousing = studentHousing;
 	}
+	public ArrayList<floors> getFloors() {
+		return this.floorlist;
+	}
 	public String getResidenceName() {
 		return residenceName;
 	}
 	public void setResidenceName(String residenceName) {
 		this.residenceName = residenceName;
+	}
+	public String getOwnerName() {
+		return ownerName;
+	}
+	public void setOwnerName(String ownerName) {
+		this.ownerName = ownerName;
 	}
 	
 	

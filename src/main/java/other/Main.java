@@ -18,6 +18,9 @@ public class Main {
         String username, password;
         User loggedInUser = null;
         int choice;
+        int choice3=1;
+        residenceAnnounced ressAn;
+        boolean choseflag=false;
         LogLevelSetter.setLevel(logger);
         
         while (running_logging) {
@@ -35,18 +38,24 @@ public class Main {
             	running_logging=false;
             	while(running_logged) {
             		showSystemAdminDashboard( adminUser);
+//                    logger.info("1. View requests for housing advertisement");
+//                    logger.info("2. Watch reservations via the system");
+//                    logger.info("3. Add and advertise housing units");
             		choice=scanner.nextInt();
             		switch(choice) {
             		case 1:
+            			logger.info("Viewing requests for housing advertisements");
             			break;
             		case 2:
+            			logger.info("Watching reservations via the system");
             			break;
             		case 3:
+            			logger.info("Adds a housing unit and advertises it");
             			break;
-            		case 4:
-            			break;
-            		default: running_logged=false;
-            			break;
+            		case 4: running_logged=false;
+        				break;
+            		default: logger.info("You entered wrong command!");
+        				break;
             		} //case
             	}
             }
@@ -57,18 +66,83 @@ public class Main {
             	running_logging=false;
             	while(running_logged) {
             		showHousingOwnerDashboard( ownerUser);
+//            		logger.info("1. Add new housing unit");
+//                    logger.info("2. View list of your housing units");
+//                    logger.info("3. View tenant details for a specific housing unit");
             		choice=scanner.nextInt();
             		switch(choice) {
             		case 1:
+            			int newID,newNumOfF;
+            			String newName;
+            			int isStudentHousing;
+            			boolean cont=true;
+            			residence newRes=new residence();
+            			logger.config("Select The Residence ID");
+            			newID=scanner.nextInt();
+            			for(residence res:ResidentsDB.getResidences()) {
+            				if (res.getResidenceID()==newID){
+            					cont=false;
+            					logger.info("ID is not unique!!");
+            					break;
+            				}
+            			}
+            			if(cont) {
+            			newRes.setResidenceID(newID);
+            			logger.config("Select The Residence Name");
+            			newName=scanner.nextLine();
+            			newRes.setResidenceName(newName);
+            			logger.config("Select The # of Floors");
+            			newNumOfF=scanner.nextInt();
+            			newRes.setNumOfFloors(newNumOfF);
+            			logger.config("Is it a student housing?/n 1 for Yes/n 0 for No");
+            			isStudentHousing=scanner.nextInt();
+            			newRes.setStudentHousing(isStudentHousing==1);
+            			ResidentsDB.addResident(newRes);
+            			logger.info("Resident was Added");
+            			}
             			break;
             		case 2:
+            			int number=1;
+            			for(residence res:ResidentsDB.getResidences()) {
+            				if (res.getOwnerName().equals(username)){
+            					logger.info(number+".\n");
+                				logger.info("Housing Name:"+res.getResidenceName());
+                				number++;
+            				}
+            			}
             			break;
             		case 3:
+            			int numberr=1;
+            			logger.info("Please select a housing first!");	
+            			for(residence res:ResidentsDB.getResidences()) {
+            				if (res.getOwnerName().equals(username)){
+            					logger.info(numberr+".\n");
+                				logger.info("Housing Name:"+res.getResidenceName());
+                				numberr++;
+            				}
+            			}
+            			numberr=scanner.nextInt();
+            			 residence myres=ResidentsDB.getResidences().get(numberr-1);
+            			logger.info("residence Name:"+myres.getResidenceName());
+            			logger.info("# of tenants"+myres.getNumOfTens());
+            			for(int i=0;i<myres.getNumOfFloors();i++) {
+            				for(int j=0;j<myres.getFloors().get(i).getNumOfApartements();j++) {
+            					logger.info("Apartment ID:"+myres.getFloors().get(i).getApartments().get(j).getAppartmentId());
+            					int numberTenants=1;
+            					for(tenants myten:myres.getFloors().get(i).getApartments().get(j).getTenantslist()) {
+            						logger.info(numberTenants+".\n");
+            						logger.info("Name:"+myten.getName());
+            						logger.info("Age:"+myten.getAge());
+            						logger.info("Email:"+myten.getEmail());
+            						logger.info("Phone Number:"+myten.getPhoneNumber());
+            					}
+            				}
+            			}
             			break;
-            		case 4:
-            			break;
-            		default: running_logged=false;
-            			break;
+            		case 4: running_logged=false;
+        				break;
+            		default: logger.info("You entered wrong command!");
+        				break;
             		} //case
             	}
             }
@@ -79,17 +153,60 @@ public class Main {
             	running_logging=false;
             	while(running_logged) {
             		showTenantDashboard( tenantsUser);
+//           x 		logger.info("1. View available housing");
+//           x         logger.info("2. View pictures and details of housing");
+//                    logger.info("3. Book accommodation");
             		choice=scanner.nextInt();
             		switch(choice) {
             		case 1:
+            			int choice2=1;
+            			for(residenceAnnounced resAn: Announcedresidences.getAnnouncedResidences()) {
+            				logger.info(choice2+".\n");
+            				logger.info("Housing Name:"+resAn.getResidenceName());
+            				choice2++;
+            			}
             			break;
             		case 2:
+            			logger.info("Please select a housing first!");
+            			
+            			
+            			for(residenceAnnounced resAn: Announcedresidences.getAnnouncedResidences()) {
+            				logger.info(choice3+".\n");
+            				logger.info("Housing Name:"+resAn.getResidenceName());
+            				choice3++;
+            			}
+            			choice3=scanner.nextInt();
+            			 ressAn=Announcedresidences.getAnnouncedResidences().get(choice3-1);
+            			logger.info("Monthly Rent:"+ressAn.getMonthlyRent());
+        				logger.info("Description:"+"\n"+ressAn.getDescription());
+        				logger.info("Contact Info:"+"\n"+ressAn.getContactName());
+        				logger.info(ressAn.getPhoneNumber());
             			break;
             		case 3:
+            			logger.info("Please select a housing first!");
+            			for(residenceAnnounced ressAnnn: Announcedresidences.getAnnouncedResidences()) {
+            				logger.info(choice3+".\n");
+            				logger.info("Housing Name:"+ressAnnn.getResidenceName());
+            				choice3++;
+            			}
+            			choice3=scanner.nextInt();
+            			residenceAnnounced ressAnnn=Announcedresidences.getAnnouncedResidences().get(choice3-1);
+            				int NumOfF=ressAnnn.getRecidence().getNumOfFloors();
+            				int Floor;
+            				int Apartment;
+            				logger.info("There are "+NumOfF+" Floors.\n Please Pick a Floor");
+            				Floor=scanner.nextInt();
+            				floors pickedFloor=ressAnnn.getRecidence().getFloors().get(Floor-1);
+            				
+            				logger.info("There are "+pickedFloor.getNumOfApartements()+" Apartements in this floor.\n Please Pick an apartment.");
+            				Apartment=scanner.nextInt();
+            				appartment pickedApartment=pickedFloor.getApartments().get(Apartment-1);
+            				pickedApartment.setNumOfTens(pickedApartment.getNumOfTens()+1);
+            			
             			break;
-            		case 4:
+            		case 4: running_logged=false;
             			break;
-            		default: running_logged=false;
+            		default: logger.info("You entered wrong command!");
             			break;
             		} //case
             	}
