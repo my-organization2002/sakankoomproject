@@ -48,16 +48,13 @@ public class tenants  {
 		this.age = age;
 	}
 	public tenants(String username,String password) {
-		// TODO Auto-generated constructor stub
 		this.username=username;
 		this.password=password;
 		this.loggedIn=false;
 	}
 	public tenants() {
-		// TODO Auto-generated constructor stub
 	}
 	public void setLoggedIn(boolean b) {
-		// TODO Auto-generated method stub
 		this.loggedIn=b;
 		
 	}

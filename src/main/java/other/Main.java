@@ -1,9 +1,7 @@
 package other;
-import java.io.Console;
 import java.util.Scanner;
 import java.util.logging.Logger;
 
-import io.cucumber.plugin.event.Node.Example;
 import mydbs.*;
 import mysakan.Administrator;
 import mysakan.MyApp;

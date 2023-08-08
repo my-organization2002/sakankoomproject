@@ -6,7 +6,6 @@ import java.util.logging.*;
 import mysakan.appartment;
 import mysakan.floors;
 import mysakan.residence;
-import mysakan.residenceAnnounced;
 import mysakan.tenants;
 public class ResidentsDB {
 	   private static final Logger LOGGER = Logger.getLogger(Announcedresidences.class.getName());
@@ -85,7 +84,6 @@ public class ResidentsDB {
 	}
 
 	public static residence getStudentHousingUnitById(Integer housingUnitId) {
-		// TODO Auto-generated method stub
 		for(residence res:ResidentsDB.getResidences())
 		{
 			

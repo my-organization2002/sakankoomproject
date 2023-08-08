@@ -35,7 +35,6 @@ public class OwnersDB {
         ownersList.add(owner);
     }
     public static boolean containsKey(String username,String password) {
-		// TODO Auto-generated method stub
 		for(owner ownerr:ownersList)
 		{
 			
@@ -49,7 +48,6 @@ public class OwnersDB {
 	}
 
 	public static owner getOwner(String username, String password) {
-		// TODO Auto-generated method stub
 		for(owner ownerr:ownersList)
 		{
 			

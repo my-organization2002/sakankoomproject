@@ -25,12 +25,6 @@ public class residence {
 	public residence() {
 		super();
 	}
-	
-//	public residence(Integer residenceID2, String residenceName) {
-//		// TODO Auto-generated constructor stub
-//		this.residenceID=residenceID2;
-//		this.residenceName=residenceName;
-//	}
 	public int getNumOfTens() {
 		return numOfTens;
 	}
@@ -51,7 +45,6 @@ public class residence {
 		this.residenceID = residenceID;
 	}
 	public floors selectFloor(Integer FloorId) {
-		// TODO Auto-generated method stub
 		for(floors floor:floorlist) {
 			if(floor.getFloorID()==FloorId) {
 				return floor;
@@ -60,7 +53,6 @@ public class residence {
 		return null;
 	}
 	public boolean isStudentHousing() {
-		// TODO Auto-generated method stub
 		return this.StudentHousing;
 	}
 	public void setStudentHousing(boolean studentHousing) {
